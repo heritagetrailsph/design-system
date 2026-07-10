@@ -1,0 +1,107 @@
+/* Heritage Trails PH — shared brand tokens → shadcn/Tailwind bridge.
+   Source of truth: ../../tokens/*.css (parent design system).
+   Do not redefine --ph-* hex here; only map semantics. */
+
+@import "../../../tokens/colors.css";
+@import "../../../tokens/typography.css";
+@import "../../../tokens/spacing.css";
+@import "../../../tokens/web.css";
+@import "../../../tokens/motion.css";
+@import "../../../tokens/tones.css";
+@import "../../../tokens/dark.css";
+
+/* Sync dark: both .dark (shadcn/Tailwind) and data-theme (design system) */
+.dark {
+  /* dark.css targets [data-theme="dark"]; mirror via attribute on html from theme hook */
+}
+
+/* shadcn semantic variables from brand tokens */
+:root {
+  --background: var(--surface-page);
+  --foreground: var(--text-body);
+  --card: var(--surface-card);
+  --card-foreground: var(--text-heading);
+  --popover: var(--surface-card);
+  --popover-foreground: var(--text-heading);
+  --primary: var(--accent-primary);
+  --primary-foreground: var(--text-on-accent);
+  --secondary: var(--ph-indigo-050);
+  --secondary-foreground: var(--ph-indigo-700);
+  --muted: var(--surface-sunken);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--ph-sun-100);
+  --accent-foreground: var(--ph-sun-600);
+  --destructive: var(--ph-danger-600);
+  --border: var(--border-subtle);
+  --input: var(--border-default);
+  --ring: var(--border-focus);
+  --radius: 0.875rem;
+
+  --chart-1: var(--ph-indigo-700);
+  --chart-2: var(--ph-sun-500);
+  --chart-3: var(--ph-terracotta-600);
+  --chart-4: var(--ph-sea-600);
+  --chart-5: var(--ph-indigo-500);
+
+  --sidebar: var(--surface-page);
+  --sidebar-foreground: var(--text-body);
+  --sidebar-primary: var(--accent-primary);
+  --sidebar-primary-foreground: var(--text-on-accent);
+  --sidebar-accent: var(--ph-indigo-050);
+  --sidebar-accent-foreground: var(--ph-indigo-700);
+  --sidebar-border: var(--border-subtle);
+  --sidebar-ring: var(--border-focus);
+
+  --shadow-glow-gold: 0 0 0 1px rgba(234, 177, 78, 0.25), 0 8px 32px rgba(234, 177, 78, 0.15);
+  --gradient-hero: linear-gradient(160deg, var(--ph-indigo-900) 0%, var(--ph-indigo-700) 45%, #2a5a7a 100%);
+  --gradient-warm: linear-gradient(135deg, var(--ph-sand-50) 0%, var(--ph-sun-100) 100%);
+  --gradient-on-image: linear-gradient(
+    to top,
+    rgba(19, 41, 74, 0.88) 0%,
+    rgba(19, 41, 74, 0.4) 45%,
+    transparent 100%
+  );
+}
+
+/* When .dark is present, dark.css has remapped --ph-* via data-theme="dark" on html.
+   Theme hook sets both. Remap shadcn aliases for dark surfaces. */
+.dark,
+[data-theme="dark"] {
+  --background: var(--surface-page);
+  --foreground: var(--text-body);
+  --card: var(--surface-card);
+  --card-foreground: var(--text-heading);
+  --popover: var(--surface-card);
+  --popover-foreground: var(--text-heading);
+  --primary: var(--accent-primary);
+  --primary-foreground: var(--text-on-accent);
+  --secondary: var(--ph-indigo-050);
+  --secondary-foreground: var(--ph-indigo-700);
+  --muted: var(--surface-sunken);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--ph-sun-100);
+  --accent-foreground: var(--ph-sun-600);
+  --destructive: var(--ph-danger-600);
+  --border: var(--border-default);
+  --input: var(--border-strong);
+  --ring: var(--border-focus);
+
+  --sidebar: var(--surface-card);
+  --sidebar-foreground: var(--text-body);
+  --sidebar-primary: var(--accent-primary);
+  --sidebar-primary-foreground: var(--text-on-accent);
+  --sidebar-accent: var(--ph-indigo-050);
+  --sidebar-accent-foreground: var(--ph-indigo-700);
+  --sidebar-border: var(--border-default);
+  --sidebar-ring: var(--border-focus);
+
+  --shadow-glow-gold: 0 0 0 1px rgba(234, 177, 78, 0.3), 0 8px 32px rgba(234, 177, 78, 0.12);
+  --gradient-hero: linear-gradient(160deg, #0f1724 0%, #1b3d6b 50%, #1e3a4a 100%);
+  --gradient-warm: linear-gradient(135deg, #1b222b 0%, #3b3222 100%);
+  --gradient-on-image: linear-gradient(
+    to top,
+    rgba(15, 23, 36, 0.92) 0%,
+    rgba(15, 23, 36, 0.45) 45%,
+    transparent 100%
+  );
+}
