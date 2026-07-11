@@ -1,6 +1,6 @@
-# Heritage Trails PH — Website
+# Philippines UNESCO Trails — Website
 
-Marketing site, living design-system docs, and an interactive mobile app prototype for **Heritage Trails PH** — calm, UNESCO-adjacent heritage walks across the Philippines.
+Marketing site, living design-system docs, and an interactive mobile app prototype for **Philippines UNESCO Trails** — calm, UNESCO-adjacent heritage walks across the Philippines.
 
 ## Stack
 

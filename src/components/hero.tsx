@@ -109,7 +109,7 @@ export function Hero() {
                       key={initial}
                       className="flex size-8 items-center justify-center rounded-full border-2 border-card text-xs font-semibold text-primary-foreground"
                       style={{
-                        background: ['#22508C', '#A85E3E', '#3F7168'][i],
+                        background: ['#1958AB', '#D9272E', '#559447'][i],
                         zIndex: 3 - i,
                       }}
                     >

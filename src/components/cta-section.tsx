@@ -42,7 +42,7 @@ export function CtaSection() {
               Your first trail is waiting
             </h2>
             <p data-reveal className="text-base leading-relaxed text-[#FCFBF8]/80 md:text-lg">
-              Join the waitlist for Heritage Trails PH. Be first to walk curated routes, earn
+              Join the waitlist for Philippines UNESCO Trails. Be first to walk curated routes, earn
               stamps, and carry a quiet guide through the old towns.
             </p>
 

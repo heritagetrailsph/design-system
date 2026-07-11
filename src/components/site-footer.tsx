@@ -10,8 +10,8 @@ export function SiteFooter() {
           <div className="md:col-span-2 space-y-4">
             <Logo href="#top" markSize={40} />
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Philippine heritage walks under UNESCO Philippines. Calm, reverent, warmly inviting —
-              a knowledgeable local guide, not a theme park.
+              Philippines UNESCO Trails: calm, reverent, warmly inviting heritage walks with a
+              knowledgeable local guide, not a theme park.
             </p>
           </div>
           <div>
@@ -59,7 +59,7 @@ export function SiteFooter() {
         <Separator className="my-8" />
 
         <div className="flex flex-col gap-2 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Heritage Trails PH. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Philippines UNESCO Trails. All rights reserved.</p>
           <p>Never draw or approximate a UNESCO mark — use the gold badge motif instead.</p>
         </div>
       </div>

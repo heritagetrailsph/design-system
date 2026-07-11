@@ -157,7 +157,7 @@ export function SystemPage() {
       <main className="container-page pb-24">
         <div className="max-w-3xl py-12">
           <h1 className="font-display text-4xl tracking-tight text-[var(--text-heading)] sm:text-5xl">
-            Heritage Trails PH
+            Philippines UNESCO Trails
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
             Living documentation for tokens, product patterns, and voice. Single source of truth:
@@ -173,17 +173,18 @@ export function SystemPage() {
         >
           <Card className="mb-8 border-border shadow-card">
             <CardHeader>
-              <CardTitle className="font-display text-xl">Logo — Morning gateway</CardTitle>
+              <CardTitle className="font-display text-xl">Logo — favicon-first mark</CardTitle>
               <CardDescription>
-                Passport-stamp seal · heritage arch · rising sun · quiet trail. Indigo plaque +
-                honey gold. Never a UNESCO mark or flag copy. Component:{' '}
+                The favicon is now the main brand icon across the browser tab, header, footer, and
+                system page. Keep the same asset everywhere so the product reads as one system,
+                not a set of separate logos. Component:{' '}
                 <code className="text-primary">components/brand/logo.tsx</code>
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap items-end gap-8 rounded-[var(--radius-lg)] border border-border bg-muted/30 p-6">
                 <div className="flex flex-col items-center gap-2">
-                  <LogoMark size={64} title="Heritage Trails PH mark" />
+                  <LogoMark size={64} title="Philippines UNESCO Trails mark" />
                   <span className="text-xs text-muted-foreground">Mark 64</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
@@ -279,7 +280,7 @@ export function SystemPage() {
         <Section
           id="patterns"
           title="Product patterns"
-          description="Heritage Trails objects — not generic widgets. These are the recipes to ship against."
+          description="Philippines UNESCO Trails objects — not generic widgets. These are the recipes to ship against."
         >
           <div className="space-y-8">
             <Recipe

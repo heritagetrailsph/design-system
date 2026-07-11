@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils'
 type TabId = 'explore' | 'map' | 'passport' | 'profile'
 
 /**
- * Fully interactive Heritage Trails mobile shell.
+ * Fully interactive Philippines UNESCO Trails mobile shell.
  * Explore → trail detail → start trail (earn stamp) → passport.
  */
 export function MobileApp({ className }: { className?: string }) {
