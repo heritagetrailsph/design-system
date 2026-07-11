@@ -9,9 +9,13 @@ import { SiteFooter } from '@/components/site-footer'
 
 export function HomePage() {
   return (
-    <div id="top" className="min-h-svh">
+    <div id="top" className="relative min-h-[100dvh]">
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+      <div className="grain-overlay" aria-hidden />
       <SiteHeader />
-      <main>
+      <main id="main">
         <Hero />
         <TrailsSection />
         <HowItWorks />

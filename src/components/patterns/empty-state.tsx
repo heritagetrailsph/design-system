@@ -42,6 +42,8 @@ type EmptyStateProps = {
   onAction?: () => void
   className?: string
   children?: ReactNode
+  /** Announce only when the state appears after an asynchronous update. */
+  announce?: boolean
 }
 
 /**
@@ -56,6 +58,7 @@ export function EmptyState({
   onAction,
   className,
   children,
+  announce = false,
 }: EmptyStateProps) {
   const preset = presets[variant]
   const Icon = preset.icon
@@ -69,7 +72,7 @@ export function EmptyState({
         'flex flex-col items-center justify-center gap-4 rounded-[var(--radius-xl)] border border-dashed border-border bg-muted/40 px-6 py-12 text-center',
         className
       )}
-      role="status"
+      role={announce ? 'status' : undefined}
     >
       <span className="flex size-14 items-center justify-center rounded-2xl bg-secondary text-primary">
         <Icon className="size-6" strokeWidth={1.75} />

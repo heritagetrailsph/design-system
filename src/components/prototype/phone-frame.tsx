@@ -19,7 +19,7 @@ export function PhoneFrame({ children, className, caption }: PhoneFrameProps) {
         className={cn(
           'relative w-full max-w-[390px]',
           'rounded-[2.25rem] border-[3px] border-ink-900/90 bg-ink-900 p-2.5',
-          'shadow-[0_24px_80px_-12px_rgba(16,59,120,0.45),0_8px_24px_-8px_rgba(16,59,120,0.25)]',
+          'shadow-[0_24px_80px_-12px_color-mix(in_oklab,var(--ph-indigo-900)_45%,transparent),0_8px_24px_-8px_color-mix(in_oklab,var(--ph-indigo-900)_25%,transparent)]',
           'dark:border-ink-700 dark:bg-ink-900'
         )}
       >

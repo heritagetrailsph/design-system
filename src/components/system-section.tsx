@@ -12,15 +12,22 @@ export function SystemSection() {
   const ref = useGsapReveal<HTMLElement>({ stagger: 0.1 })
 
   return (
-    <section id="system" ref={ref} className="scroll-mt-20 bg-muted/40 py-16 md:py-24">
+    <section
+      id="system"
+      ref={ref}
+      className="section-y scroll-mt-24 border-y border-border/60 bg-muted/35"
+    >
       <div className="container-page">
-        <div data-reveal className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
-          <h2 className="font-display text-3xl tracking-tight text-[var(--text-heading)] sm:text-4xl">
+        <div data-reveal className="mb-10 max-w-xl space-y-3 md:mb-14">
+          <h2 className="font-display text-3xl tracking-tight text-[var(--text-heading)] sm:text-4xl lg:text-[2.75rem]">
             Foundations, refined for web
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Shared tokens, product patterns, and voice — live at{' '}
-            <Link to="/system" className="font-semibold text-primary underline-offset-4 hover:underline">
+          <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+            Shared tokens, product patterns, and voice. Live at{' '}
+            <Link
+              to="/system"
+              className="font-semibold text-primary underline-offset-4 hover:underline"
+            >
               /system
             </Link>
             .
@@ -28,8 +35,8 @@ export function SystemSection() {
         </div>
 
         <div data-reveal>
-          <Tabs defaultValue="color" className="mx-auto max-w-4xl">
-            <TabsList className="mx-auto mb-8 grid h-auto w-full max-w-md grid-cols-3 rounded-full bg-card p-1 shadow-card">
+          <Tabs defaultValue="color" className="max-w-4xl">
+            <TabsList className="mb-8 grid h-auto w-full max-w-md grid-cols-3 rounded-full bg-card p-1 shadow-card">
               <TabsTrigger value="color" className="rounded-full data-[state=active]:shadow-sm">
                 Color
               </TabsTrigger>
@@ -46,7 +53,7 @@ export function SystemSection() {
                 <CardHeader>
                   <CardTitle className="font-display text-xl">Palette</CardTitle>
                   <CardDescription>
-                    From parent tokens/ — never redefine hex in components.
+                    From parent tokens/. Never redefine hex in components.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -106,17 +113,27 @@ export function SystemSection() {
             </TabsContent>
           </Tabs>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button asChild className="rounded-full font-semibold">
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Button asChild className="group/cta rounded-full font-semibold">
               <Link to="/system">
                 Open full system docs
-                <ArrowUpRight className="size-4" />
+                <span
+                  className="flex size-6 items-center justify-center rounded-full bg-primary-foreground/15 transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-px"
+                  aria-hidden
+                >
+                  <ArrowUpRight className="size-3.5" />
+                </span>
               </Link>
             </Button>
-            <Button asChild variant="outline" className="rounded-full font-semibold">
+            <Button asChild variant="outline" className="group/cta rounded-full font-semibold">
               <Link to="/prototype">
                 Try mobile prototype
-                <ArrowUpRight className="size-4" />
+                <span
+                  className="flex size-6 items-center justify-center rounded-full bg-muted transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-px"
+                  aria-hidden
+                >
+                  <ArrowUpRight className="size-3.5" />
+                </span>
               </Link>
             </Button>
           </div>

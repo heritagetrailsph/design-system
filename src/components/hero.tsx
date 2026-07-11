@@ -1,10 +1,11 @@
-import { ArrowRight, MapPin, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { PhotoBlock, PhotoCaption } from '@/components/patterns'
 import { MetaRowFromString } from '@/components/patterns/meta-row'
 import { trails } from '@/data/trails'
 import { useGsapHeroReveal } from '@/hooks/use-gsap-reveal'
+import { cn } from '@/lib/utils'
 
 export function Hero() {
   const ref = useGsapHeroReveal<HTMLElement>()
@@ -13,7 +14,7 @@ export function Hero() {
   return (
     <section ref={ref} className="relative overflow-hidden">
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.55] dark:opacity-40"
+        className="pointer-events-none absolute inset-0 opacity-[0.5] dark:opacity-35"
         style={{ background: 'var(--gradient-warm)' }}
         aria-hidden
       />
@@ -28,104 +29,119 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="container-page relative grid items-center gap-12 py-16 md:grid-cols-2 md:gap-16 md:py-24 lg:py-28">
-        <div className="flex flex-col items-start gap-6">
-          <Badge data-reveal variant="gold" className="gap-1.5 px-3 py-1 text-[0.7rem]">
-            <Sparkles className="size-3" />
+      <div className="container-page relative grid min-h-[min(100dvh,52rem)] items-center gap-10 pb-16 pt-24 md:grid-cols-2 md:gap-14 md:pb-20 md:pt-24 lg:gap-20 lg:pb-24">
+        <div className="flex flex-col items-start gap-5 md:gap-6">
+          <p
+            data-reveal
+            className="text-sm font-medium text-primary"
+          >
             UNESCO Philippines · Heritage walks
-          </Badge>
+          </p>
 
           <h1
             data-reveal
-            className="font-display text-[2.5rem] leading-[1.1] tracking-tight text-[var(--text-heading)] text-balance sm:text-5xl lg:text-[3.5rem]"
+            className="font-display max-w-[14ch] text-[2.4rem] leading-[1.08] tracking-tight text-[var(--text-heading)] sm:text-5xl lg:text-[3.35rem]"
           >
             A quiet morning in the old town
           </h1>
 
           <p
             data-reveal
-            className="max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl"
+            className="max-w-[36ch] text-lg leading-relaxed text-muted-foreground md:text-xl"
           >
-            Curated Philippine heritage trails — Intramuros, Vigan, Banaue, Bohol, and beyond.
-            Walk the stories. Collect the stamps. Travel with reverence.
+            Curated walks through Intramuros, Vigan, Banaue, and Bohol. Walk the stories. Collect the stamps.
           </p>
 
           <div data-reveal className="flex flex-wrap items-center gap-3 pt-1">
-            <Button asChild size="xl" className="shadow-card">
+            <Button asChild size="xl" className="group/cta pressable shadow-card">
               <a href="#trails">
                 Explore trails
-                <ArrowRight className="size-4" data-icon="inline-end" />
+                <span
+                  className={cn(
+                    'flex size-8 items-center justify-center rounded-full',
+                    'bg-primary-foreground/15 transition-transform duration-300',
+                    'ease-[cubic-bezier(0.22,1,0.36,1)]',
+                    'group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-px group-hover/cta:scale-105'
+                  )}
+                  aria-hidden
+                >
+                  <ArrowRight className="size-3.5" />
+                </span>
               </a>
             </Button>
-            <Button asChild variant="outline" size="xl" className="rounded-full border-border bg-card/60">
+            <Button
+              asChild
+              variant="outline"
+              size="xl"
+              className="pressable rounded-full border-border bg-card/70 backdrop-blur-sm"
+            >
               <a href="#how-it-works">How it works</a>
             </Button>
-          </div>
-
-          <div
-            data-reveal
-            className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-sm text-muted-foreground"
-          >
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="size-3.5 text-primary" />
-              40+ curated stops
-            </span>
-            <span>Sentence-case, stamp-first UI</span>
-            <span>Designed for golden hour</span>
           </div>
         </div>
 
         <div data-reveal className="relative mx-auto w-full max-w-md lg:max-w-lg">
           <div
-            className="absolute -inset-3 rounded-[2rem] opacity-60 blur-2xl dark:opacity-40"
+            className="absolute -inset-4 rounded-[2.25rem] opacity-50 blur-2xl dark:opacity-30"
             style={{ background: 'linear-gradient(135deg, var(--ph-indigo-200), var(--ph-sun-300))' }}
             aria-hidden
           />
-          <article className="relative overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-raised">
-            <PhotoBlock
-              src={featured.image}
-              alt={featured.imageAlt}
-              gradient={featured.gradient}
-              aspect="photo"
-              radius="none"
-            >
-              <div className="absolute left-4 top-4">
-                <Badge variant="gold" className="shadow-sm">
-                  UNESCO
-                </Badge>
-              </div>
-              <PhotoCaption
-                region={featured.region}
-                title={featured.name}
-                meta={<MetaRowFromString meta={featured.meta} onImage />}
-              />
-            </PhotoBlock>
-            <div className="space-y-3 p-5 sm:p-6">
-              <p className="text-sm leading-relaxed text-muted-foreground">{featured.story}</p>
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex -space-x-2">
-                  {['A', 'M', 'J'].map((initial, i) => (
-                    <span
-                      key={initial}
-                      className="flex size-8 items-center justify-center rounded-full border-2 border-card text-xs font-semibold text-primary-foreground"
-                      style={{
-                        background: ['#1958AB', '#D9272E', '#559447'][i],
-                        zIndex: 3 - i,
-                      }}
-                    >
-                      {initial}
-                    </span>
-                  ))}
-                  <span className="flex size-8 items-center justify-center rounded-full border-2 border-card bg-muted text-[0.65rem] font-semibold text-muted-foreground">
-                    +2k
-                  </span>
+          <div className="bezel-shell relative">
+            <article className="bezel-core">
+              <PhotoBlock
+                src={featured.image}
+                alt={featured.imageAlt}
+                gradient={featured.gradient}
+                aspect="photo"
+                radius="none"
+                loading="eager"
+                fetchPriority="high"
+                sizes="(min-width: 1024px) 32rem, (min-width: 768px) 45vw, 100vw"
+              >
+                <div className="absolute left-4 top-4">
+                  <Badge variant="gold" className="shadow-sm">
+                    UNESCO
+                  </Badge>
                 </div>
-                <Button size="sm" className="rounded-full font-semibold">
-                  Start trail
-                </Button>
+                <PhotoCaption
+                  region={featured.region}
+                  title={featured.name}
+                  meta={<MetaRowFromString meta={featured.meta} onImage />}
+                />
+              </PhotoBlock>
+              <div className="space-y-3 p-5 sm:p-6">
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {featured.story}
+                </p>
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex -space-x-2">
+                    {['A', 'M', 'J'].map((initial, i) => (
+                      <span
+                        key={initial}
+                        className="flex size-8 items-center justify-center rounded-full border-2 border-card text-xs font-semibold text-primary-foreground"
+                        style={{
+                          background: [
+                            'var(--tone-history-solid)',
+                            'var(--tone-culture-solid)',
+                            'var(--tone-nature-solid)',
+                          ][i],
+                          zIndex: 3 - i,
+                        }}
+                      >
+                        {initial}
+                      </span>
+                    ))}
+                    <span className="flex size-8 items-center justify-center rounded-full border-2 border-card bg-muted text-[0.65rem] font-semibold text-muted-foreground">
+                      +2k
+                    </span>
+                  </div>
+                  <Button size="sm" className="pressable rounded-full font-semibold" asChild>
+                    <a href="#trails">Start trail</a>
+                  </Button>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </div>
     </section>

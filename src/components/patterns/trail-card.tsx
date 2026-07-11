@@ -25,20 +25,28 @@ export function TrailCardFeatured({ trail, className, onClick, ...rest }: TrailC
   return (
     <Card
       className={cn(
-        'group overflow-hidden border-border bg-card py-0 shadow-card transition-brand hover:shadow-raised',
-        onClick && 'cursor-pointer pressable',
+        'group relative overflow-hidden border-border bg-card py-0 shadow-card transition-brand hover:shadow-raised',
+        onClick &&
+          'pressable focus-within:ring-3 focus-within:ring-ring/50',
         className
       )}
-      onClick={onClick}
       {...rest}
     >
+      {onClick ? (
+        <button
+          type="button"
+          onClick={onClick}
+          className="absolute inset-0 z-10 cursor-pointer rounded-[inherit] outline-none"
+          aria-label={`Open ${trail.name}`}
+        />
+      ) : null}
       <PhotoBlock
         src={trail.image}
         alt={trail.imageAlt}
         gradient={trail.gradient}
         aspect="hero"
         radius="none"
-        className="min-h-[16rem] w-full lg:min-h-[22rem]"
+        className="min-h-[16rem] w-full lg:min-h-[22rem] [&_img]:transition-transform [&_img]:duration-700 [&_img]:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:[&_img]:scale-[1.04]"
       >
         <div className="absolute left-4 top-4 flex gap-2">
           <Badge variant={toneToBadge[trail.tone]}>{trail.badge}</Badge>
@@ -81,14 +89,22 @@ export function TrailCardRow({ trail, className, onClick, ...rest }: TrailCardRo
   return (
     <Card
       className={cn(
-        'group overflow-hidden border-border bg-card py-0 shadow-card transition-brand',
+        'group relative overflow-hidden border-border bg-card py-0 shadow-card transition-brand',
         'hover:-translate-y-0.5 hover:shadow-raised',
-        onClick && 'cursor-pointer pressable',
+        onClick &&
+          'pressable focus-within:ring-3 focus-within:ring-ring/50',
         className
       )}
-      onClick={onClick}
       {...rest}
     >
+      {onClick ? (
+        <button
+          type="button"
+          onClick={onClick}
+          className="absolute inset-0 z-10 cursor-pointer rounded-[inherit] outline-none"
+          aria-label={`Open ${trail.name}`}
+        />
+      ) : null}
       <CardContent className="flex h-full gap-0 p-0">
         <div
           className="relative w-24 shrink-0 overflow-hidden sm:w-28"
@@ -98,14 +114,14 @@ export function TrailCardRow({ trail, className, onClick, ...rest }: TrailCardRo
             <img
               src={trail.image}
               alt=""
-              className="absolute inset-0 size-full object-cover"
+              className="absolute inset-0 size-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
               loading="lazy"
             />
           ) : null}
         </div>
         <div className="flex flex-1 flex-col justify-center gap-2 p-4 sm:p-5">
           <div className="flex items-start justify-between gap-2">
-            <p className="text-sm font-medium text-terracotta-500">{trail.region}</p>
+            <p className="text-sm font-medium text-muted-foreground">{trail.region}</p>
             <Badge variant={toneToBadge[trail.tone]} className="shrink-0">
               {trail.badge}
             </Badge>

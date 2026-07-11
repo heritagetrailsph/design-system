@@ -1,8 +1,8 @@
-import { Award, CheckCircle2 } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
+import { Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Stamp } from '@/components/patterns'
 import { useGsapReveal } from '@/hooks/use-gsap-reveal'
+import { cn } from '@/lib/utils'
 
 const stamps = [
   { name: 'Intramuros', earned: true },
@@ -13,66 +13,74 @@ const stamps = [
   { name: 'San Agustin', earned: true },
 ]
 
+const benefits = [
+  'Stamps for completed trails only - no purchase unlocks',
+  'Offline-friendly walks with story cards at each stop',
+  'Dark mode that keeps gold bright and sand warm',
+]
+
 export function PassportSection() {
   const ref = useGsapReveal<HTMLElement>({ stagger: 0.12 })
 
   return (
-    <section id="passport" ref={ref} className="scroll-mt-20 py-16 md:py-24">
+    <section id="passport" ref={ref} className="section-y scroll-mt-24">
       <div className="container-page">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div data-reveal className="space-y-6">
-            <Badge variant="gold" className="gap-1.5">
-              <Award className="size-3" />
-              Heritage passport
-            </Badge>
-            <h2 className="font-display text-3xl tracking-tight text-[var(--text-heading)] sm:text-4xl">
+            <h2 className="font-display max-w-[16ch] text-3xl tracking-tight text-[var(--text-heading)] sm:text-4xl lg:text-[2.75rem]">
               No emoji. Just gold stamps.
             </h2>
             <p className="max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
               Celebration is quiet and earned. Finish a trail and a honey-gold stamp settles into
-              your passport — the same motif you see on UNESCO badges and ratings.
+              your passport, the same motif you see on UNESCO badges and ratings.
             </p>
-            <ul className="space-y-3 text-sm text-foreground md:text-base">
-              {[
-                'Stamps for completed trails only — no purchase unlocks',
-                'Offline-friendly walks with story cards at each stop',
-                'Dark mode that keeps gold bright and sand warm',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-sea-600" />
-                  <span>{item}</span>
+            <ul className="space-y-3.5 text-sm text-foreground md:text-base">
+              {benefits.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span
+                    className={cn(
+                      'mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full',
+                      'bg-sea-100 text-sea-700 dark:bg-sea-100 dark:text-sea-700'
+                    )}
+                  >
+                    <Check className="size-3" strokeWidth={2.5} />
+                  </span>
+                  <span className="leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
-            <Button size="lg" className="rounded-full font-semibold" asChild>
+            <Button size="lg" className="pressable rounded-full font-semibold" asChild>
               <a href="/system#patterns">Open pattern docs</a>
             </Button>
           </div>
 
-          <div
-            data-reveal
-            className="relative rounded-[1.75rem] border border-border p-6 shadow-raised sm:p-8"
-            style={{ background: 'var(--gradient-warm)' }}
-          >
-            <div className="mb-6 flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-sun-600">Your stamps</p>
-                <p className="font-display text-xl text-[var(--text-heading)]">Ana’s passport</p>
+          <div data-reveal className="bezel-shell">
+            <div
+              className="bezel-core p-6 sm:p-8"
+              style={{ background: 'var(--gradient-warm)' }}
+            >
+              <div className="mb-7 flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-sm font-medium text-sun-600">Your stamps</p>
+                  <p className="font-display text-xl tracking-tight text-[var(--text-heading)]">
+                    Ana&rsquo;s passport
+                  </p>
+                </div>
+                <span className="rounded-full bg-card px-3.5 py-1.5 text-sm font-semibold tabular-nums text-sun-600 shadow-card">
+                  3 / 6
+                </span>
               </div>
-              <span className="rounded-full bg-card px-3 py-1 text-sm font-semibold text-sun-600 shadow-card">
-                3 / 6
-              </span>
-            </div>
 
-            <div className="grid grid-cols-3 gap-3 sm:gap-4">
-              {stamps.map((stamp) => (
-                <Stamp key={stamp.name} name={stamp.name} earned={stamp.earned} />
-              ))}
-            </div>
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                {stamps.map((stamp) => (
+                  <Stamp key={stamp.name} name={stamp.name} earned={stamp.earned} />
+                ))}
+              </div>
 
-            <p className="mt-6 text-center text-sm text-muted-foreground">
-              No stamps yet? Your first trail is waiting.
-            </p>
+              <p className="mt-7 text-center text-sm text-muted-foreground">
+                No stamps yet? Your first trail is waiting.
+              </p>
+            </div>
           </div>
         </div>
       </div>

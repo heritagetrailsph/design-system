@@ -1,9 +1,11 @@
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Moon, Sun } from 'lucide-react'
+import { ArrowLeft, Check, Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
@@ -24,10 +26,13 @@ import { cn } from '@/lib/utils'
 
 const nav = [
   { id: 'foundations', label: 'Foundations' },
+  { id: 'components', label: 'Components' },
   { id: 'patterns', label: 'Patterns' },
   { id: 'states', label: 'States' },
+  { id: 'accessibility', label: 'Accessibility' },
   { id: 'motion', label: 'Motion' },
   { id: 'content', label: 'Content' },
+  { id: 'governance', label: 'Governance' },
 ]
 
 function Section({
@@ -102,9 +107,31 @@ export function SystemPage() {
   const { theme, toggle } = useTheme()
   const [navActive, setNavActive] = useState('explore')
   const [stampCelebrate, setStampCelebrate] = useState(false)
+  const [activeSection, setActiveSection] = useState(nav[0].id)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (visible) setActiveSection(visible.target.id)
+      },
+      { rootMargin: '-20% 0px -65% 0px', threshold: [0, 0.25, 0.5] }
+    )
+
+    nav.forEach(({ id }) => {
+      const section = document.getElementById(id)
+      if (section) observer.observe(section)
+    })
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className="min-h-svh bg-background">
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <header className="sticky top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-md">
         <div className="container-page flex h-14 items-center justify-between gap-4">
           <div className="flex min-w-0 items-center gap-3">
@@ -139,14 +166,20 @@ export function SystemPage() {
           </div>
         </div>
         <nav
-          className="container-page flex gap-1 overflow-x-auto pb-2"
+          className="scrollbar-none container-page flex gap-1 overflow-x-auto pb-2"
           aria-label="System sections"
         >
           {nav.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="shrink-0 rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground no-underline transition-brand hover:bg-muted hover:text-foreground"
+              aria-current={activeSection === item.id ? 'location' : undefined}
+              className={cn(
+                'shrink-0 rounded-full px-3 py-1.5 text-sm font-medium no-underline transition-brand',
+                activeSection === item.id
+                  ? 'bg-secondary text-secondary-foreground'
+                  : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+              )}
             >
               {item.label}
             </a>
@@ -154,7 +187,7 @@ export function SystemPage() {
         </nav>
       </header>
 
-      <main className="container-page pb-24">
+      <main id="main" className="container-page pb-24">
         <div className="max-w-3xl py-12">
           <h1 className="font-display text-4xl tracking-tight text-[var(--text-heading)] sm:text-5xl">
             Philippines UNESCO Trails
@@ -275,6 +308,95 @@ export function SystemPage() {
               </p>
             </TabsContent>
           </Tabs>
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            <Card className="border-border shadow-card">
+              <CardHeader>
+                <CardTitle className="font-display text-xl">Spacing</CardTitle>
+                <CardDescription>Four-pixel base grid. Prefer named tokens over arbitrary gaps.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {[4, 8, 12, 16, 24, 32].map((value) => (
+                  <div key={value} className="flex items-center gap-3 text-xs text-muted-foreground">
+                    <span className="w-10 font-mono">{value}px</span>
+                    <span className="h-2 rounded-full bg-primary" style={{ width: value * 2 }} />
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+            <Card className="border-border shadow-card">
+              <CardHeader>
+                <CardTitle className="font-display text-xl">Radius</CardTitle>
+                <CardDescription>Small controls, medium cards, soft feature surfaces, and pills.</CardDescription>
+              </CardHeader>
+              <CardContent className="grid grid-cols-2 gap-3 text-center text-xs text-muted-foreground">
+                {[
+                  ['sm', 'var(--radius-sm)'],
+                  ['md', 'var(--radius-md)'],
+                  ['lg', 'var(--radius-lg)'],
+                  ['xl', 'var(--radius-xl)'],
+                ].map(([label, radius]) => (
+                  <div key={label} className="border border-border bg-muted/40 p-4" style={{ borderRadius: radius }}>
+                    <code>--radius-{label}</code>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+            <Card className="border-border shadow-card">
+              <CardHeader>
+                <CardTitle className="font-display text-xl">Elevation</CardTitle>
+                <CardDescription>Elevation communicates hierarchy, never decoration alone.</CardDescription>
+              </CardHeader>
+              <CardContent className="grid grid-cols-3 gap-3 text-center text-xs text-muted-foreground">
+                <div className="rounded-xl border border-border bg-card p-4">Base</div>
+                <div className="rounded-xl bg-card p-4 shadow-card">Card</div>
+                <div className="rounded-xl bg-card p-4 shadow-raised">Raised</div>
+              </CardContent>
+            </Card>
+          </div>
+        </Section>
+
+        <Section
+          id="components"
+          title="Core components"
+          description="Primitive states must remain recognizable, accessible, and consistent before product styling is added."
+        >
+          <div className="grid gap-6 lg:grid-cols-2">
+            <Card className="border-border shadow-card">
+              <CardHeader>
+                <CardTitle className="font-display text-xl">Buttons</CardTitle>
+                <CardDescription>One primary action per view. Labels stay short and never wrap.</CardDescription>
+              </CardHeader>
+              <CardContent className="flex flex-wrap items-center gap-3">
+                <Button>Primary</Button>
+                <Button variant="secondary">Secondary</Button>
+                <Button variant="outline">Outline</Button>
+                <Button variant="destructive">Destructive</Button>
+                <Button disabled>Disabled</Button>
+                <Button disabled aria-busy="true">
+                  Working…
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="border-border shadow-card">
+              <CardHeader>
+                <CardTitle className="font-display text-xl">Form fields</CardTitle>
+                <CardDescription>Labels remain visible. Errors sit below the field and are programmatically linked.</CardDescription>
+              </CardHeader>
+              <CardContent className="grid gap-4 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="system-email">Email</Label>
+                  <Input id="system-email" type="email" placeholder="ana@example.com" />
+                  <p className="text-xs text-muted-foreground">We only send trail updates.</p>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="system-error">Passport number</Label>
+                  <Input id="system-error" defaultValue="PH-12" aria-invalid aria-describedby="system-error-copy" />
+                  <p id="system-error-copy" className="text-xs text-destructive">Use eight characters.</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </Section>
 
         <Section
@@ -405,6 +527,64 @@ export function SystemPage() {
             <EmptyState variant="trails" onAction={() => undefined} />
             <ErrorState onRetry={() => undefined} />
           </div>
+          <Card className="border-border shadow-card">
+            <CardHeader>
+              <CardTitle className="font-display text-xl">State coverage</CardTitle>
+              <CardDescription>Every data-driven surface ships with the complete state cycle.</CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {['Loading or skeleton', 'Empty or filtered', 'Error with recovery', 'Success or completion'].map((label) => (
+                <div key={label} className="flex items-center gap-2 rounded-xl bg-muted/50 p-3 text-sm">
+                  <Check className="size-4 shrink-0 text-primary" />
+                  {label}
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+        </Section>
+
+        <Section
+          id="accessibility"
+          title="Accessibility & responsive behavior"
+          description="Accessibility is part of each component contract, not a final QA pass."
+        >
+          <div className="grid gap-6 lg:grid-cols-2">
+            <Card className="border-border shadow-card">
+              <CardHeader>
+                <CardTitle className="font-display text-xl">Interaction requirements</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-muted-foreground">
+                {[
+                  'Interactive cards support Enter, Space, and a visible focus ring.',
+                  'Touch targets are at least 44 × 44px.',
+                  'Live regions are enabled only for asynchronous updates.',
+                  'Meaning never depends on color alone.',
+                  'Reduced motion removes travel and scale effects.',
+                ].map((item) => (
+                  <p key={item} className="flex gap-2"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{item}</p>
+                ))}
+              </CardContent>
+            </Card>
+            <Card className="border-border shadow-card">
+              <CardHeader>
+                <CardTitle className="font-display text-xl">Reference widths</CardTitle>
+                <CardDescription>Validate content, navigation, imagery, and tap targets at every width.</CardDescription>
+              </CardHeader>
+              <CardContent className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {[
+                  ['320', 'Narrow'],
+                  ['390', 'App'],
+                  ['768', 'Tablet'],
+                  ['1440', 'Desktop'],
+                ].map(([width, label]) => (
+                  <div key={width} className="rounded-xl border border-border bg-muted/30 p-3 text-center">
+                    <p className="font-mono text-sm font-semibold text-foreground">{width}px</p>
+                    <p className="text-xs text-muted-foreground">{label}</p>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          </div>
         </Section>
 
         <Section
@@ -483,6 +663,30 @@ export function SystemPage() {
                 <CardContent>
                   <p className="text-sm leading-relaxed text-muted-foreground">{item.b}</p>
                 </CardContent>
+              </Card>
+            ))}
+          </div>
+        </Section>
+
+        <Section
+          id="governance"
+          title="Brand & cultural governance"
+          description="Trust depends on accurate designation, respectful representation, and documented asset rights."
+        >
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ['UNESCO references', 'Use the UNESCO label only for verified designated sites. Never imply official affiliation or recreate the UNESCO emblem.'],
+              ['Place & community names', 'Use locally accepted names, preserve diacritics, and confirm Indigenous community terminology with primary sources.'],
+              ['Photography', 'Record source, creator, license, alt text, and permitted crops for every production image.'],
+              ['Translation', 'Prefer human-reviewed Filipino and regional-language copy for heritage narratives and safety information.'],
+              ['Historical claims', 'Attach a source and review date to dates, designations, and cultural claims before publishing.'],
+              ['Ownership', 'Assign a maintainer and changelog entry for every token or component contract change.'],
+            ].map(([title, body]) => (
+              <Card key={title} className="border-border shadow-card">
+                <CardHeader>
+                  <CardTitle className="font-display text-lg">{title}</CardTitle>
+                </CardHeader>
+                <CardContent><p className="text-sm leading-relaxed text-muted-foreground">{body}</p></CardContent>
               </Card>
             ))}
           </div>

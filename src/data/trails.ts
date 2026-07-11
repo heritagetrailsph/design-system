@@ -21,10 +21,10 @@ export const trails: Trail[] = [
     name: 'The Walled City of Intramuros',
     meta: 'Built 1571 · 4.2 km · 12 stops',
     story:
-      'The walls of Intramuros were raised in 1571 — and survived four centuries of earthquakes, fires, and war.',
+      'The walls of Intramuros were raised in 1571 and survived four centuries of earthquakes, fires, and war.',
     tone: 'gold',
     badge: 'UNESCO',
-    gradient: 'linear-gradient(135deg, #4A82C8, #154A91 60%, #D9272E)',
+    gradient: 'linear-gradient(135deg, var(--ph-indigo-500), var(--ph-indigo-800) 60%, var(--ph-terracotta-600))',
     image: '/images/trails/intramuros.jpg',
     imageAlt: 'Fort Santiago gate in Intramuros, the walled city of Manila',
   },
@@ -34,10 +34,10 @@ export const trails: Trail[] = [
     name: 'Calle Crisologo by lamplight',
     meta: '1.8 km · 7 stops · Evening walk',
     story:
-      'Cobblestones, capiz windows, and the soft glow of kerosene lamps — Vigan is a living bahay na bato streetscape.',
+      'Cobblestones, capiz windows, and the soft glow of kerosene lamps. Vigan is a living bahay na bato streetscape.',
     tone: 'gold',
     badge: 'UNESCO',
-    gradient: 'linear-gradient(135deg, #D9272E, #A31F25 55%, #FFD978)',
+    gradient: 'linear-gradient(135deg, var(--ph-terracotta-600), var(--ph-terracotta-700) 55%, var(--ph-sun-300))',
     image: '/images/trails/vigan.jpg',
     imageAlt: 'Calle Crisologo heritage street in Vigan, Ilocos Sur',
   },
@@ -47,10 +47,10 @@ export const trails: Trail[] = [
     name: 'Banaue Rice Terraces',
     meta: '6.5 km · 9 stops · Full day',
     story:
-      'Hand-carved into the mountains over 2,000 years — the “stairways to heaven” still feed the valleys below.',
+      'Hand-carved into the mountains over 2,000 years. The “stairways to heaven” still feed the valleys below.',
     tone: 'sea',
     badge: 'Nature',
-    gradient: 'linear-gradient(135deg, #79AD6D, #356D2C 55%, #F4B72D)',
+    gradient: 'linear-gradient(135deg, var(--ph-sea-500), var(--ph-sea-700) 55%, var(--ph-sun-500))',
     image: '/images/trails/banaue.jpg',
     imageAlt: 'Banaue Rice Terraces stretching across the Ifugao mountains',
   },
@@ -60,10 +60,10 @@ export const trails: Trail[] = [
     name: 'Churches of Bohol',
     meta: '12 km drive · 5 stops',
     story:
-      'Coral-stone façades and painted ceilings tell of faith rebuilt after every quake — resilient, ornate, deeply local.',
+      'Coral-stone façades and painted ceilings tell of faith rebuilt after every quake: resilient, ornate, deeply local.',
     tone: 'indigo',
     badge: 'History',
-    gradient: 'linear-gradient(135deg, #4A82C8, #103B78 65%, #559447)',
+    gradient: 'linear-gradient(135deg, var(--ph-indigo-500), var(--ph-indigo-900) 65%, var(--ph-sea-600))',
     image: '/images/trails/bohol.jpg',
     imageAlt: 'Baclayon Church façade in Bohol, coral-stone Baroque church',
   },
@@ -72,12 +72,12 @@ export const trails: Trail[] = [
 export const steps = [
   {
     title: 'Pick a trail near you',
-    body: 'Browse curated walks by region, mood, and pace — churches at dawn, forts at golden hour, markets in between.',
+    body: 'Browse curated walks by region, mood, and pace: churches at dawn, forts at golden hour, markets in between.',
     icon: 'map' as const,
   },
   {
     title: 'Walk with quiet guidance',
-    body: 'Story cards unlock as you arrive. No loud tour-bus energy — just a knowledgeable local in your pocket.',
+    body: 'Story cards unlock as you arrive. No loud tour-bus energy, just a knowledgeable local in your pocket.',
     icon: 'book' as const,
   },
   {
@@ -88,10 +88,10 @@ export const steps = [
 ]
 
 export const paletteSwatches = [
-  { name: 'Flag Blue', token: '--ph-indigo-700', hex: '#1958AB', role: 'Primary action' },
-  { name: 'Deep Blue', token: '--ph-indigo-900', hex: '#103B78', role: 'Headings / inverse' },
-  { name: 'Sun Gold', token: '--ph-sun-500', hex: '#F4B72D', role: 'Achievement gold' },
-  { name: 'Flag Red', token: '--ph-terracotta-600', hex: '#D9272E', role: 'Culture / emphasis' },
-  { name: 'Leaf Green', token: '--ph-sea-600', hex: '#559447', role: 'Nature / water' },
-  { name: 'Warm White', token: '--ph-sand-0', hex: '#FFFDFA', role: 'Page background' },
+  { name: 'Heritage Blue', token: '--ph-indigo-700', hex: '#22508C', role: 'Primary action' },
+  { name: 'Deep Indigo', token: '--ph-indigo-900', hex: '#13294A', role: 'Headings / inverse' },
+  { name: 'Sun Gold', token: '--ph-sun-500', hex: '#EAB14E', role: 'Achievement gold' },
+  { name: 'Terracotta', token: '--ph-terracotta-600', hex: '#A85E3E', role: 'Culture / emphasis' },
+  { name: 'Reef Teal', token: '--ph-sea-600', hex: '#3F7168', role: 'Nature / water' },
+  { name: 'Warm White', token: '--ph-sand-0', hex: '#FCFBF8', role: 'Page background' },
 ]

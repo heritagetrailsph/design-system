@@ -12,6 +12,9 @@ type PhotoBlockProps = {
   children?: ReactNode
   /** Always apply bottom protection gradient for text legibility */
   protect?: boolean
+  loading?: 'eager' | 'lazy'
+  fetchPriority?: 'high' | 'low' | 'auto'
+  sizes?: string
 }
 
 const aspects = {
@@ -40,6 +43,9 @@ export function PhotoBlock({
   className,
   children,
   protect = true,
+  loading = 'lazy',
+  fetchPriority = 'auto',
+  sizes,
 }: PhotoBlockProps) {
   return (
     <div
@@ -56,7 +62,9 @@ export function PhotoBlock({
           src={src}
           alt={alt}
           className="absolute inset-0 size-full object-cover"
-          loading="lazy"
+          loading={loading}
+          fetchPriority={fetchPriority}
+          sizes={sizes}
           decoding="async"
         />
       ) : null}
@@ -83,7 +91,7 @@ export function PhotoCaption({ region, title, meta, className }: PhotoCaptionPro
   return (
     <div className={cn('absolute inset-x-0 bottom-0 p-5 sm:p-6', className)}>
       {region ? (
-        <p className="mb-1.5 text-sm font-medium text-sun-300">{region}</p>
+        <p className="mb-1.5 text-sm font-medium text-[var(--text-on-image)]/85">{region}</p>
       ) : null}
       <h3 className="font-display text-2xl font-medium leading-tight text-[var(--text-on-image)] sm:text-[1.75rem]">
         {title}

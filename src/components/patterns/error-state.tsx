@@ -8,6 +8,8 @@ type ErrorStateProps = {
   onRetry?: () => void
   retryLabel?: string
   className?: string
+  /** Announce only when the error appears after an asynchronous update. */
+  announce?: boolean
 }
 
 /**
@@ -20,6 +22,7 @@ export function ErrorState({
   onRetry,
   retryLabel = 'Try again',
   className,
+  announce = false,
 }: ErrorStateProps) {
   return (
     <div
@@ -27,7 +30,7 @@ export function ErrorState({
         'flex flex-col items-center justify-center gap-4 rounded-[var(--radius-xl)] border border-border bg-card px-6 py-12 text-center shadow-card',
         className
       )}
-      role="alert"
+      role={announce ? 'alert' : undefined}
     >
       <span
         className="flex size-14 items-center justify-center rounded-2xl"
