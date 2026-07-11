@@ -49,13 +49,13 @@ export function CtaSection() {
                 data-reveal
                 className="font-display text-3xl tracking-tight text-[var(--text-on-image)] sm:text-4xl md:text-[2.75rem]"
               >
-                Your first trail is waiting
+                Form pattern mock
               </h2>
               <p
                 data-reveal
                 className="mx-auto max-w-[40ch] text-base leading-relaxed text-[var(--text-on-image)]/80 md:text-lg"
               >
-                Be first to walk curated routes, earn stamps, and carry a quiet guide through the old towns.
+                Waitlist block for testing inverse CTA, input contrast, and success state on brand gradient.
               </p>
 
               {submitted ? (
@@ -64,7 +64,7 @@ export function CtaSection() {
                   role="status"
                   className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4 text-[var(--text-on-image)] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
                 >
-                  Mabuhay. You are on the list. We will write when the trails open.
+                  Success state mock. Form validation and status messaging look correct.
                 </p>
               ) : (
                 <form
@@ -103,7 +103,7 @@ export function CtaSection() {
                     size="lg"
                     className="pressable h-12 shrink-0 rounded-full bg-sun-500 px-6 font-semibold text-ink-900 hover:bg-sun-300"
                   >
-                    Join waitlist
+                    Submit mock
                   </Button>
                 </form>
               )}

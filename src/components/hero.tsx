@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -7,6 +8,7 @@ import { trails } from '@/data/trails'
 import { useGsapHeroReveal } from '@/hooks/use-gsap-reveal'
 import { cn } from '@/lib/utils'
 
+/** Marketing-scale hero composition for design-system stress testing. */
 export function Hero() {
   const ref = useGsapHeroReveal<HTMLElement>()
   const featured = trails[0]
@@ -29,13 +31,10 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="container-page relative grid min-h-[min(100dvh,52rem)] items-center gap-10 pb-16 pt-24 md:grid-cols-2 md:gap-14 md:pb-20 md:pt-24 lg:gap-20 lg:pb-24">
+      <div className="container-page relative grid min-h-[min(100dvh,52rem)] items-center gap-10 pb-16 pt-32 md:grid-cols-2 md:gap-14 md:pb-20 md:pt-36 lg:gap-20 lg:pb-24">
         <div className="flex flex-col items-start gap-5 md:gap-6">
-          <p
-            data-reveal
-            className="text-sm font-medium text-primary"
-          >
-            UNESCO Philippines · Heritage walks
+          <p data-reveal className="text-sm font-medium text-primary">
+            Page mock · Hero composition
           </p>
 
           <h1
@@ -49,13 +48,13 @@ export function Hero() {
             data-reveal
             className="max-w-[36ch] text-lg leading-relaxed text-muted-foreground md:text-xl"
           >
-            Curated walks through Intramuros, Vigan, Banaue, and Bohol. Walk the stories. Collect the stamps.
+            Sample marketing copy for layout QA. Tests type scale, CTAs, and trail card bezel.
           </p>
 
           <div data-reveal className="flex flex-wrap items-center gap-3 pt-1">
             <Button asChild size="xl" className="group/cta pressable shadow-card">
               <a href="#trails">
-                Explore trails
+                Scroll to trails
                 <span
                   className={cn(
                     'flex size-8 items-center justify-center rounded-full',
@@ -75,7 +74,7 @@ export function Hero() {
               size="xl"
               className="pressable rounded-full border-border bg-card/70 backdrop-blur-sm"
             >
-              <a href="#how-it-works">How it works</a>
+              <Link to="/">Design system</Link>
             </Button>
           </div>
         </div>

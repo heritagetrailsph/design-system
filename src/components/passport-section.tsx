@@ -50,7 +50,7 @@ export function PassportSection() {
               ))}
             </ul>
             <Button size="lg" className="pressable rounded-full font-semibold" asChild>
-              <a href="/system#patterns">Open pattern docs</a>
+              <a href="/#patterns">Open pattern docs</a>
             </Button>
           </div>
 

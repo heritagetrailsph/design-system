@@ -8,9 +8,11 @@ export function SiteFooter() {
       <div className="container-page">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm space-y-4">
-            <Logo href="#top" markSize={40} />
+            <Logo href="/" markSize={40} tagline="Design system lab" />
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Calm, reverent heritage walks across the Philippines. A knowledgeable local guide, not a theme park.
+              Living design system for Philippines UNESCO Trails. Page and app
+              surfaces here are mocks for testing tokens, patterns, and voice —
+              not a production product site.
             </p>
           </div>
 
@@ -18,23 +20,20 @@ export function SiteFooter() {
             className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-muted-foreground"
             aria-label="Footer"
           >
-            <a href="#trails" className="transition-colors hover:text-primary">
-              Trails
-            </a>
-            <a href="#how-it-works" className="transition-colors hover:text-primary">
-              How it works
-            </a>
-            <a href="#passport" className="transition-colors hover:text-primary">
-              Passport
-            </a>
-            <Link to="/system" className="transition-colors hover:text-primary">
+            <Link to="/" className="transition-colors hover:text-primary">
               Design system
             </Link>
-            <Link to="/prototype" className="transition-colors hover:text-primary">
-              App prototype
+            <Link to="/mock" className="transition-colors hover:text-primary">
+              Page mock
             </Link>
-            <a href="#cta" className="transition-colors hover:text-primary">
-              Waitlist
+            <Link to="/prototype" className="transition-colors hover:text-primary">
+              App mock
+            </Link>
+            <a href="/#patterns" className="transition-colors hover:text-primary">
+              Patterns
+            </a>
+            <a href="/#foundations" className="transition-colors hover:text-primary">
+              Foundations
             </a>
           </nav>
         </div>
@@ -42,7 +41,9 @@ export function SiteFooter() {
         <Separator className="my-9" />
 
         <div className="flex flex-col gap-2 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Philippines UNESCO Trails. All rights reserved.</p>
+          <p>
+            Design system lab · mock content only · © {new Date().getFullYear()}
+          </p>
           <p>Never draw or approximate a UNESCO mark - use the gold badge motif instead.</p>
         </div>
       </div>

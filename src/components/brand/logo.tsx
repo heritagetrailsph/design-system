@@ -39,6 +39,8 @@ type LogoProps = {
   /** Compact: title + tagline handling is tuned in the layout */
   href?: string
   asLink?: boolean
+  /** Secondary line under the wordmark (defaults to design system lab) */
+  tagline?: string
 }
 
 /** Full lockup: mark + wordmark + tagline */
@@ -47,6 +49,7 @@ export function Logo({
   markSize = 36,
   wordmark = true,
   href = '/',
+  tagline = 'Design system lab',
 }: LogoProps) {
   const content = (
     <>
@@ -57,7 +60,7 @@ export function Logo({
             Philippines UNESCO Trails
           </span>
           <span className="mt-0.5 text-[0.57rem] font-medium tracking-[0.11em] text-muted-foreground">
-            Treading Routes, Discovering Roots
+            {tagline}
           </span>
         </span>
       ) : null}
@@ -73,7 +76,7 @@ export function Logo({
           'focus-visible:rounded-xl focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
           className
         )}
-        aria-label="Philippines UNESCO Trails — home"
+        aria-label="Philippines UNESCO Trails design system"
       >
         {content}
       </a>
@@ -83,7 +86,7 @@ export function Logo({
   return (
     <span
       className={cn('inline-flex items-center gap-2.5', className)}
-      aria-label="Philippines UNESCO Trails"
+      aria-label="Philippines UNESCO Trails design system"
     >
       {content}
     </span>

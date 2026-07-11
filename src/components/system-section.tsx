@@ -8,6 +8,7 @@ import { EmptyState, MetaRow } from '@/components/patterns'
 import { paletteSwatches } from '@/data/trails'
 import { useGsapReveal } from '@/hooks/use-gsap-reveal'
 
+/** In-page teaser of foundations on the composition mock — links back to the lab home. */
 export function SystemSection() {
   const ref = useGsapReveal<HTMLElement>({ stagger: 0.1 })
 
@@ -20,15 +21,15 @@ export function SystemSection() {
       <div className="container-page">
         <div data-reveal className="mb-10 max-w-xl space-y-3 md:mb-14">
           <h2 className="font-display text-3xl tracking-tight text-[var(--text-heading)] sm:text-4xl lg:text-[2.75rem]">
-            Foundations, refined for web
+            Back to the design system
           </h2>
           <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            Shared tokens, product patterns, and voice. Live at{' '}
+            This page is a layout mock. Full token docs, pattern recipes, and governance live on the{' '}
             <Link
-              to="/system"
+              to="/"
               className="font-semibold text-primary underline-offset-4 hover:underline"
             >
-              /system
+              design system home
             </Link>
             .
           </p>
@@ -51,7 +52,7 @@ export function SystemSection() {
             <TabsContent value="color" className="outline-none">
               <Card className="border-border shadow-card">
                 <CardHeader>
-                  <CardTitle className="font-display text-xl">Palette</CardTitle>
+                  <CardTitle className="font-display text-xl">Palette preview</CardTitle>
                   <CardDescription>
                     From brand-tokens.css. Never redefine hex in components.
                   </CardDescription>
@@ -115,8 +116,8 @@ export function SystemSection() {
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Button asChild className="group/cta rounded-full font-semibold">
-              <Link to="/system">
-                Open full system docs
+              <Link to="/">
+                Open design system
                 <span
                   className="flex size-6 items-center justify-center rounded-full bg-primary-foreground/15 transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-px"
                   aria-hidden
@@ -127,7 +128,7 @@ export function SystemSection() {
             </Button>
             <Button asChild variant="outline" className="group/cta rounded-full font-semibold">
               <Link to="/prototype">
-                Try mobile prototype
+                Open app mock
                 <span
                   className="flex size-6 items-center justify-center rounded-full bg-muted transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-px"
                   aria-hidden

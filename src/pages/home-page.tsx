@@ -1,3 +1,4 @@
+import { MockBanner } from '@/components/mock-banner'
 import { SiteHeader } from '@/components/site-header'
 import { Hero } from '@/components/hero'
 import { TrailsSection } from '@/components/trails-section'
@@ -7,6 +8,11 @@ import { SystemSection } from '@/components/system-section'
 import { CtaSection } from '@/components/cta-section'
 import { SiteFooter } from '@/components/site-footer'
 
+/**
+ * Page composition mock.
+ * Exercises marketing-scale layout patterns against live tokens and components.
+ * Not a product website.
+ */
 export function HomePage() {
   return (
     <div id="top" className="relative min-h-[100dvh]">
@@ -14,7 +20,11 @@ export function HomePage() {
         Skip to content
       </a>
       <div className="grain-overlay" aria-hidden />
-      <SiteHeader />
+      <SiteHeader
+        banner={
+          <MockBanner label="Marketing page layout used only to stress-test design components in context." />
+        }
+      />
       <main id="main">
         <Hero />
         <TrailsSection />

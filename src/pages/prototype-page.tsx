@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import {
-  ArrowLeft,
   Bookmark,
   Footprints,
   Moon,
@@ -13,18 +12,20 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { LogoMark } from '@/components/brand/logo'
+import { LabNav } from '@/components/lab-nav'
+import { MockBanner } from '@/components/mock-banner'
 import { PhoneFrame, MobileApp } from '@/components/prototype'
 import { useTheme } from '@/hooks/use-theme'
 
 const flows = [
   {
     icon: Footprints,
-    title: 'Browse & open a trail',
-    body: 'Filter chips, search, featured photo, and list rows — all wired to trail detail.',
+    title: 'Browse and open a trail',
+    body: 'Filter chips, search, featured photo, and list rows wired to trail detail.',
   },
   {
     icon: Bookmark,
-    title: 'Save · Start trail',
+    title: 'Save and start trail',
     body: 'Bookmark toggles a toast. Start trail completes the walk and awards a gold stamp.',
   },
   {
@@ -34,32 +35,32 @@ const flows = [
   },
 ]
 
+/**
+ * App composition mock.
+ * Interactive phone flow for pattern validation — not a shipping product.
+ */
 export function PrototypePage() {
   const { theme, toggle } = useTheme()
 
   return (
     <div className="min-h-svh bg-background">
+      <MockBanner label="Mobile app flow mock for pattern and state testing. Session state is ephemeral." />
       <header className="sticky top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-md">
         <div className="container-page flex h-14 items-center justify-between gap-4">
           <div className="flex min-w-0 items-center gap-3">
-            <Button asChild variant="ghost" size="sm" className="rounded-full">
-              <Link to="/">
-                <ArrowLeft className="size-4" />
-                Site
-              </Link>
-            </Button>
-            <Separator orientation="vertical" className="hidden h-6 sm:block" />
             <LogoMark size={28} className="hidden sm:block" />
             <span className="truncate font-display text-lg text-[var(--text-heading)]">
-              Mobile prototype
+              App mock
             </span>
             <Badge variant="secondary" className="hidden shrink-0 sm:inline-flex">
-              Interactive
+              Mock
             </Badge>
+            <Separator orientation="vertical" className="hidden h-6 sm:block" />
+            <LabNav dense className="hidden md:flex" />
           </div>
           <div className="flex items-center gap-1.5">
-            <Button asChild variant="ghost" size="sm" className="hidden rounded-full sm:inline-flex">
-              <Link to="/system">Design system</Link>
+            <Button asChild variant="ghost" size="sm" className="rounded-full sm:hidden">
+              <Link to="/">System</Link>
             </Button>
             <Button
               variant="ghost"
@@ -76,25 +77,24 @@ export function PrototypePage() {
 
       <main className="container-page py-10 md:py-14">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,24.5rem)] lg:items-start lg:gap-16">
-          {/* Copy / guide */}
           <div className="space-y-8 lg:sticky lg:top-24 lg:self-start">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold text-muted-foreground shadow-sm">
                 <Smartphone className="size-3.5 text-primary" />
-                Design system · product flow
+                Pattern lab · app mock
               </div>
               <h1 className="font-display text-3xl leading-tight text-[var(--text-heading)] sm:text-4xl md:text-[2.75rem]">
-                Walk the app in a phone frame
+                Mobile flow for component QA
               </h1>
               <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                A fully interactive mobile mockup built from the same tokens and patterns as{' '}
+                Interactive mock built from the same tokens and patterns documented in the{' '}
                 <Link
-                  to="/system"
+                  to="/"
                   className="font-semibold text-primary underline-offset-4 hover:underline"
                 >
-                  /system
+                  design system
                 </Link>
-                — trail cards, photo protection, bottom nav, stamps, and voice-led empties.
+                . Trail cards, photo protection, bottom nav, stamps, and voice-led empties under real taps.
               </p>
             </div>
 
@@ -114,7 +114,7 @@ export function PrototypePage() {
 
             <Card className="border-dashed border-border bg-muted/30 shadow-none">
               <CardContent className="space-y-2 p-5 text-sm text-muted-foreground">
-                <p className="font-semibold text-foreground">Try this path</p>
+                <p className="font-semibold text-foreground">Suggested test path</p>
                 <ol className="list-decimal space-y-1.5 pl-4 leading-relaxed">
                   <li>
                     Open{' '}
@@ -132,9 +132,8 @@ export function PrototypePage() {
             </Card>
           </div>
 
-          {/* Single phone instance — full width on small screens, sticky column on large */}
           <div className="mx-auto w-full max-w-[390px] lg:mx-0 lg:max-w-none lg:sticky lg:top-24">
-            <PhoneFrame caption="Scroll and tap inside the device — state stays in this session.">
+            <PhoneFrame caption="Scroll and tap inside the device. State is mock-only for this session.">
               <MobileApp />
             </PhoneFrame>
           </div>

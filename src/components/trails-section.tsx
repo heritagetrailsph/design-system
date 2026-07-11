@@ -28,7 +28,7 @@ export function TrailsSection() {
             className="group/cta w-fit rounded-full font-semibold"
             asChild
           >
-            <a href="/system#patterns">
+            <a href="/#patterns">
               View patterns
               <span
                 className="flex size-6 items-center justify-center rounded-full bg-muted transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-px"

@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Check, Moon, Sun } from 'lucide-react'
+import { Check, Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -20,6 +20,7 @@ import {
   TrailCardRow,
 } from '@/components/patterns'
 import { Logo, LogoMark } from '@/components/brand/logo'
+import { LabNav } from '@/components/lab-nav'
 import { trails, paletteSwatches } from '@/data/trails'
 import { useTheme } from '@/hooks/use-theme'
 import { cn } from '@/lib/utils'
@@ -135,24 +136,22 @@ export function SystemPage() {
       <header className="sticky top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-md">
         <div className="container-page flex h-14 items-center justify-between gap-4">
           <div className="flex min-w-0 items-center gap-3">
-            <Button asChild variant="ghost" size="sm" className="rounded-full">
-              <Link to="/">
-                <ArrowLeft className="size-4" />
-                Site
-              </Link>
-            </Button>
-            <Separator orientation="vertical" className="hidden h-6 sm:block" />
             <LogoMark size={28} className="hidden sm:block" />
             <span className="truncate font-display text-lg text-[var(--text-heading)]">
               Design system
             </span>
             <Badge variant="secondary" className="hidden sm:inline-flex">
-              v1.2
+              Source of truth
             </Badge>
+            <Separator orientation="vertical" className="hidden h-6 lg:block" />
+            <LabNav dense className="hidden lg:flex" />
           </div>
           <div className="flex items-center gap-1.5">
-            <Button asChild variant="ghost" size="sm" className="hidden rounded-full sm:inline-flex">
-              <Link to="/prototype">App prototype</Link>
+            <Button asChild variant="outline" size="sm" className="hidden rounded-full sm:inline-flex">
+              <Link to="/mock">Page mock</Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm" className="hidden rounded-full md:inline-flex">
+              <Link to="/prototype">App mock</Link>
             </Button>
             <Button
               variant="ghost"
@@ -189,14 +188,27 @@ export function SystemPage() {
 
       <main id="main" className="container-page pb-24">
         <div className="max-w-3xl py-12">
+          <p className="mb-3 text-sm font-semibold text-primary">
+            Design system lab · primary surface
+          </p>
           <h1 className="font-display text-4xl tracking-tight text-[var(--text-heading)] sm:text-5xl">
             Philippines UNESCO Trails
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Living documentation for tokens, product patterns, and voice. Single source of truth:{' '}
+            Living documentation for tokens, components, product patterns, and voice. Page and app
+            routes under this lab are composition mocks for testing these pieces in context — not a
+            production website. Single source of truth:{' '}
             <code className="text-sm text-primary">brand-tokens.css</code> mapped into shadcn via{' '}
             <code className="text-sm text-primary">brand-bridge.css</code>.
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Button asChild className="rounded-full font-semibold">
+              <Link to="/mock">Open page mock</Link>
+            </Button>
+            <Button asChild variant="outline" className="rounded-full font-semibold">
+              <Link to="/prototype">Open app mock</Link>
+            </Button>
+          </div>
         </div>
 
         <Section
@@ -402,7 +414,7 @@ export function SystemPage() {
         <Section
           id="patterns"
           title="Product patterns"
-          description="Philippines UNESCO Trails objects — not generic widgets. These are the recipes to ship against."
+          description="Domain objects for the brand — not generic widgets. Recipes exercised by the page and app mocks."
         >
           <div className="space-y-8">
             <Recipe
@@ -692,12 +704,28 @@ export function SystemPage() {
           </div>
         </Section>
 
-        <p
-          className={cn(
-            'py-8 text-center text-xs text-muted-foreground'
-          )}
-        >
-          Never draw or approximate a UNESCO mark — use the gold badge motif instead.
+        <section className="border-t border-border py-12">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="font-display text-2xl text-[var(--text-heading)] sm:text-3xl">
+              Composition mocks
+            </h2>
+            <p className="text-muted-foreground">
+              Full-page and mobile layouts exist only to validate tokens and patterns under real
+              hierarchy, density, and interaction. They are not product surfaces.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild className="rounded-full font-semibold">
+                <Link to="/mock">Page mock</Link>
+              </Button>
+              <Button asChild variant="outline" className="rounded-full font-semibold">
+                <Link to="/prototype">App mock</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <p className="py-8 text-center text-xs text-muted-foreground">
+          Never draw or approximate a UNESCO mark - use the gold badge motif instead.
         </p>
       </main>
     </div>

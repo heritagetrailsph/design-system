@@ -1,6 +1,8 @@
-# Philippines UNESCO Trails — Website
+# Philippines UNESCO Trails — Design System Lab
 
-Marketing site, living design-system docs, and an interactive mobile app prototype for **Philippines UNESCO Trails** — calm, UNESCO-adjacent heritage walks across the Philippines.
+Living **design system** for Philippines UNESCO Trails: tokens, shadcn primitives, product patterns, motion, content voice, and governance.
+
+Marketing layouts and the mobile app shell are **composition mocks** only. They exist to stress-test design components in context — **not** a production product website.
 
 ## Stack
 
@@ -12,14 +14,13 @@ Marketing site, living design-system docs, and an interactive mobile app prototy
 | Routing | React Router |
 | Brand | Project-local CSS tokens in `src/styles/brand-tokens.css` |
 
-## Requirements
-
-- **Node.js** 20+ (recommended)
+## Token pipeline
 
 ```
-website/
-├── src/styles/brand-tokens.css  # source of truth for --ph-* tokens
-└── src/styles/brand-bridge.css  # semantic mapping to shadcn
+src/styles/brand-tokens.css   # source of truth for --ph-* tokens
+    → src/styles/brand-bridge.css   # semantic mapping to shadcn
+    → Tailwind @theme (src/index.css)
+    → components
 ```
 
 Do **not** redefine `--ph-*` hex values inside components. Change them in `brand-tokens.css`, then consume them through the semantic bridge.
@@ -32,7 +33,7 @@ npm install
 npm run dev
 ```
 
-Open the URL Vite prints (usually `http://localhost:5173`).
+Open the URL Vite prints (usually `http://localhost:5173`). The home route is the design system.
 
 ### Scripts
 
@@ -45,13 +46,14 @@ Open the URL Vite prints (usually `http://localhost:5173`).
 
 ## Routes
 
-| Path | Page |
-|------|------|
-| `/` | Marketing single-page (hero, trails, how it works, passport, CTA) |
-| `/system` | Living design system — foundations, patterns, states, motion, content |
-| `/prototype` | Interactive mobile mockup in a phone frame (full click-through) |
+| Path | Surface | Role |
+|------|---------|------|
+| `/` | Design system | **Primary.** Foundations, components, patterns, states, motion, content, governance |
+| `/system` | Redirect | Alias → `/` |
+| `/mock` | Page mock | Full marketing-scale layout for composition QA |
+| `/prototype` | App mock | Interactive phone flow for pattern + state QA |
 
-### Mobile prototype flow
+### App mock flow (pattern testing)
 
 1. Browse / filter / search trails on **Explore**
 2. Open a trail → tabs (Stops · History · Tips), save, **Start trail**
@@ -63,22 +65,24 @@ Prefer starting **Banaue** or **Bohol** to unlock a locked stamp.
 
 ```
 src/
-├── pages/                 # Route pages
-│   ├── home-page.tsx
-│   ├── system-page.tsx
-│   └── prototype-page.tsx
+├── pages/
+│   ├── system-page.tsx    # Design system (home)
+│   ├── home-page.tsx      # Page composition mock
+│   └── prototype-page.tsx # App composition mock
 ├── components/
 │   ├── brand/             # Logo mark + wordmark
 │   ├── patterns/          # Product patterns (cards, stamps, bottom nav…)
-│   ├── prototype/         # Phone frame + interactive app shell
+│   ├── prototype/         # Phone frame + interactive app shell (mock)
 │   ├── ui/                # shadcn primitives
-│   └── *.tsx              # Marketing sections
-├── data/trails.ts         # Trail content + palette swatches
-├── hooks/                 # Theme, GSAP reveal
-├── lib/                   # cn(), motion helpers
+│   ├── lab-nav.tsx        # Lab surface navigation
+│   ├── mock-banner.tsx    # Persistent "mock surface" notice
+│   └── *.tsx              # Section blocks used by the page mock
+├── data/trails.ts         # Sample trail content + palette swatches
+├── hooks/
+├── lib/
 └── styles/
-    ├── brand-tokens.css         # tracked token source
-    └── brand-bridge.css         # shadcn semantic mapping
+    ├── brand-tokens.css
+    └── brand-bridge.css
 ```
 
 ### Product patterns
@@ -92,28 +96,14 @@ src/components/patterns/
   bottom-nav.tsx   Frosted mobile tabs
   empty-state.tsx  Voice-led empties
   error-state.tsx  Practical errors
-
-src/components/prototype/
-  phone-frame.tsx  Device chrome (~390px canvas)
-  mobile-app.tsx   Explore → detail → passport shell
-  screens/         Interactive screens using patterns above
 ```
-
-## Token pipeline
-
-```
-src/styles/brand-tokens.css         (tracked source of truth)
-    → src/styles/brand-bridge.css   (semantic mapping to shadcn)
-    → Tailwind @theme               (src/index.css)
-    → components
-```
-
-Motion helpers live in `src/lib/motion.ts` and read CSS motion tokens.
 
 ## Design notes
 
+- **Primary surface:** design system documentation
+- **Mocks:** `/mock` and `/prototype` validate components; they are not product launch surfaces
 - **Typography:** Spectral (display / heritage) + Figtree (UI)
-- **On-image text:** always `--text-on-image` with protection gradient — never theme-flipping sand
+- **On-image text:** always `--text-on-image` with protection gradient
 - **Celebration:** gold stamps only — no confetti / emoji
 - **Voice:** knowledgeable local guide, not a theme park
 
