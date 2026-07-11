@@ -53,7 +53,7 @@ export function SystemSection() {
                 <CardHeader>
                   <CardTitle className="font-display text-xl">Palette</CardTitle>
                   <CardDescription>
-                    From parent tokens/. Never redefine hex in components.
+                    From brand-tokens.css. Never redefine hex in components.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

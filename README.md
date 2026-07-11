@@ -10,20 +10,19 @@ Marketing site, living design-system docs, and an interactive mobile app prototy
 | UI | Tailwind CSS v4 · shadcn/ui · Lucide |
 | Motion | GSAP (ScrollTrigger) + brand motion tokens |
 | Routing | React Router |
-| Brand | Shared CSS tokens from parent `../tokens/` |
+| Brand | Project-local CSS tokens in `src/styles/brand-tokens.css` |
 
 ## Requirements
 
 - **Node.js** 20+ (recommended)
-- Parent design-system tokens at `../tokens/` (this package imports them via `src/styles/brand-bridge.css`)
 
 ```
-ph-h/
-├── tokens/          # source of truth for --ph-* tokens
-└── website/         # this project
+website/
+├── src/styles/brand-tokens.css  # source of truth for --ph-* tokens
+└── src/styles/brand-bridge.css  # semantic mapping to shadcn
 ```
 
-Do **not** redefine `--ph-*` hex values inside the website. Change tokens in the parent design system, then consume them through the bridge.
+Do **not** redefine `--ph-*` hex values inside components. Change them in `brand-tokens.css`, then consume them through the semantic bridge.
 
 ## Getting started
 
@@ -77,7 +76,9 @@ src/
 ├── data/trails.ts         # Trail content + palette swatches
 ├── hooks/                 # Theme, GSAP reveal
 ├── lib/                   # cn(), motion helpers
-└── styles/brand-bridge.css
+└── styles/
+    ├── brand-tokens.css         # tracked token source
+    └── brand-bridge.css         # shadcn semantic mapping
 ```
 
 ### Product patterns
@@ -101,7 +102,7 @@ src/components/prototype/
 ## Token pipeline
 
 ```
-../tokens/*.css
+src/styles/brand-tokens.css         (tracked source of truth)
     → src/styles/brand-bridge.css   (semantic mapping to shadcn)
     → Tailwind @theme               (src/index.css)
     → components

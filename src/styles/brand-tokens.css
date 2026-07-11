@@ -1,0 +1,382 @@
+/* Heritage Trails PH — color tokens
+   Palette nods to the Philippine flag (royal blue, golden sun) and the
+   heritage-blue register of UNESCO, kept desaturated for a restful feel.
+   Every text / surface pairing below is verified to WCAG 2.1 AA (≥4.5:1 for
+   body text, ≥3:1 for large text & UI). Dark theme overrides live in dark.css. */
+:root {
+  color-scheme: light;
+
+  /* ---- Base palette ---- */
+  /* Indigo — royal heritage blue (Philippine flag blue + UNESCO azure),
+     twilight over the Intramuros walls. Primary action color. */
+  --ph-indigo-900: #13294A;  /* headings, inverse surfaces */
+  --ph-indigo-800: #1B3D6B;  /* primary hover */
+  --ph-indigo-700: #22508C;  /* PRIMARY */
+  --ph-indigo-500: #4E7BB0;  /* focus ring, mid tone */
+  --ph-indigo-200: #BFD3E8;
+  --ph-indigo-100: #DDE8F4;
+  --ph-indigo-050: #EEF3FA;
+
+  /* Sun — the golden ray of the Philippine flag; golden-hour on capiz windows.
+     Achievement / stamps / UNESCO badges. */
+  --ph-sun-600: #8F6420;  /* gold used as TEXT (AA on sand) */
+  --ph-sun-500: #EAB14E;  /* gold SURFACE (badges/stamps) — pair with dark ink */
+  --ph-sun-300: #F3D08F;
+  --ph-sun-100: #FBF1DC;
+
+  /* Terracotta — Vigan clay tiles & brick. Culture / food category. */
+  --ph-terracotta-700: #8F4E32;  /* text */
+  --ph-terracotta-600: #A85E3E;  /* solid fill w/ white text */
+  --ph-terracotta-500: #C07A56;  /* decorative mid tone */
+  --ph-terracotta-100: #F3E4DB;
+
+  /* Sea — reef teal, island waters. Nature / water category. */
+  --ph-sea-700: #345F58;  /* text */
+  --ph-sea-600: #3F7168;  /* solid fill w/ white text */
+  --ph-sea-500: #55897F;  /* decorative mid tone */
+  --ph-sea-100: #E1EDEA;
+
+  /* Sand & ink — warm neutrals (paper, weathered stone) */
+  --ph-sand-0:   #FCFBF8;
+  --ph-sand-50:  #F6F3EC;
+  --ph-sand-100: #EDE8DC;
+  --ph-sand-200: #DFD8C8;
+  --ph-sand-300: #C8BEA9;
+  --ph-ink-300:  #8F8677;  /* faint (timestamps, disabled) — ≥3:1 UI text */
+  --ph-ink-500:  #6E665A;  /* muted — AA on sand & cards */
+  --ph-ink-700:  #524B41;  /* body */
+  --ph-ink-900:  #2C2620;  /* strong / on-gold text */
+
+  /* Semantic status */
+  --ph-success-600: #2C7250;
+  --ph-success-100: #E2F1E9;
+  --ph-warning-600: #8C5C22;
+  --ph-warning-100: #F8EEDD;
+  --ph-danger-600:  #A6453A;
+  --ph-danger-100:  #F7E4E1;
+
+  /* ---- Semantic aliases ---- */
+  --surface-page:    var(--ph-sand-0);
+  --surface-raised:  #FFFFFF;
+  --surface-sunken:  var(--ph-sand-50);
+  --surface-card:    #FFFFFF;
+  --surface-inverse: var(--ph-indigo-900);
+
+  --text-heading:  var(--ph-indigo-900);
+  --text-body:     var(--ph-ink-700);
+  --text-muted:    var(--ph-ink-500);
+  --text-faint:    var(--ph-ink-300);
+  --text-inverse:  var(--ph-sand-0);
+  --text-on-image: #FCFBF8;   /* text over photos — ALWAYS light; never flips with theme (photo scrim is always dark) */
+  --text-link:     var(--ph-indigo-700);
+  --text-on-accent: #FFFFFF;   /* white — verified AA on all -600/700 fills */
+  --text-on-gold:   var(--ph-ink-900);  /* gold surface always takes dark ink */
+
+  --accent-primary:        var(--ph-indigo-700);
+  --accent-primary-hover:  var(--ph-indigo-800);
+  --accent-primary-press:  var(--ph-indigo-900);
+  --accent-gold:           var(--ph-sun-500);
+  --accent-terracotta:     var(--ph-terracotta-600);
+  --accent-sea:            var(--ph-sea-600);
+
+  --border-subtle: var(--ph-sand-100);
+  --border-default: var(--ph-sand-200);
+  --border-strong: var(--ph-sand-300);
+  --border-focus:  var(--ph-indigo-500);
+
+  /* Frosted fixed bars (bottom nav, map overlays) */
+  --surface-frost: rgba(252, 251, 248, 0.92);
+}
+/* Heritage Trails PH — typography tokens */
+:root {
+  --font-display: 'Spectral', 'Georgia', serif;
+  --font-body: 'Figtree', -apple-system, 'Segoe UI', sans-serif;
+
+  /* Scale (mobile-first). Web/marketing sizes live in web.css and override
+     hero/title/h2/h3 when that sheet is loaded (marketing sites, docs). */
+  --text-display: 2.75rem;   /* 44px — large display (mobile baseline) */
+  --text-hero:    2.375rem;  /* 38px — screen heroes, trail names */
+  --text-title:   1.75rem;   /* 28px — screen titles */
+  --text-h2:      1.375rem;  /* 22px — section headings */
+  --text-h3:      1.125rem;  /* 18px — card titles */
+  --text-lead:    1.0625rem; /* 17px — lead paragraphs (mobile) */
+  --text-base:    1rem;      /* 16px — body */
+  --text-sm:      0.875rem;  /* 14px — secondary text */
+  --text-caption: 0.75rem;   /* 12px — captions, meta */
+  --text-overline: 0.6875rem;/* 11px — uppercase eyebrows */
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-body: 1.6;
+
+  --tracking-overline: 0.12em;
+  --tracking-display: 0.01em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-display: 500;  /* Cormorant Garamond headings — 500 keeps presence (400 reads thin) */
+}
+/* Heritage Trails PH — spacing, radius, elevation, motion */
+:root {
+  /* Spacing — 4px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Corner radii */
+  --radius-sm: 10px;   /* inputs, chips */
+  --radius-md: 14px;   /* buttons, small cards */
+  --radius-lg: 20px;   /* cards, sheets */
+  --radius-xl: 28px;  /* hero imagery, modals */
+  --radius-pill: 999px;
+
+  /* Elevation — warm-tinted, soft */
+  --shadow-card: 0 1px 2px rgba(44, 38, 32, 0.04), 0 6px 18px rgba(44, 38, 32, 0.05);
+  --shadow-raised: 0 2px 4px rgba(44, 38, 32, 0.05), 0 14px 36px rgba(44, 38, 32, 0.09);
+  --shadow-overlay: 0 8px 20px rgba(28, 50, 71, 0.10), 0 28px 64px rgba(28, 50, 71, 0.16);
+  /* Full motion scale lives in motion.css (imported after this file). */
+
+  /* Layout */
+  --app-max-width: 430px;   /* mobile canvas */
+  --tap-target: 44px;
+
+  /* Web layout (used by marketing / docs; safe no-ops for mobile kit) */
+  --space-18: 72px;
+  --space-20: 80px;
+  --space-24: 96px;
+}
+/* Heritage Trails PH — web & marketing extensions
+   Complements mobile-first tokens for desktop marketing sites,
+   design system docs, and product surfaces beyond the 430px canvas. */
+:root {
+  /* ---- Extended type scale (desktop / marketing) ---- */
+  --text-display: 3.5rem;   /* 56px — hero marketing headlines */
+  --text-hero:    2.75rem;  /* 44px — section heroes (overrides mobile 38px when imported after typography.css) */
+  --text-title:   2rem;     /* 32px — page titles */
+  --text-h2:      1.5rem;   /* 24px — section headings */
+  --text-h3:      1.25rem;  /* 20px — card titles */
+  --text-lead:    1.125rem; /* 18px — lead / intro paragraphs */
+
+  /* ---- Layout containers ---- */
+  --container-sm:  640px;
+  --container-md:  768px;
+  --container-lg:  1024px;
+  --container-xl:  1200px;
+  --container-2xl: 1400px;
+  --section-y:     5rem;     /* 80px section vertical rhythm */
+  --section-y-sm:  3.5rem;   /* 56px tighter sections */
+  --content-max:   68ch;     /* readable prose measure */
+
+  /* ---- Refined elevation (web) ---- */
+  --shadow-sm:  0 1px 2px rgba(44, 38, 32, 0.04);
+  --shadow-md:  0 1px 2px rgba(44, 38, 32, 0.04), 0 6px 18px rgba(44, 38, 32, 0.05);
+  --shadow-lg:  0 2px 4px rgba(44, 38, 32, 0.05), 0 14px 36px rgba(44, 38, 32, 0.09);
+  --shadow-xl:  0 8px 20px rgba(28, 50, 71, 0.10), 0 28px 64px rgba(28, 50, 71, 0.16);
+  --shadow-glow-gold: 0 0 0 1px rgba(234, 177, 78, 0.25), 0 8px 32px rgba(234, 177, 78, 0.15);
+
+  /* ---- Gradients ---- */
+  --gradient-hero: linear-gradient(160deg, var(--ph-indigo-900) 0%, var(--ph-indigo-700) 45%, #2A5A7A 100%);
+  --gradient-warm: linear-gradient(135deg, var(--ph-sand-50) 0%, var(--ph-sun-100) 100%);
+  --gradient-on-image: linear-gradient(to top, rgba(19, 41, 74, 0.88) 0%, rgba(19, 41, 74, 0.4) 45%, transparent 100%);
+  --gradient-stamp: linear-gradient(145deg, var(--ph-sun-300) 0%, var(--ph-sun-500) 50%, var(--ph-sun-600) 100%);
+
+  /* ---- Focus / ring ---- */
+  --ring-width: 2px;
+  --ring-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --text-display: 4rem;    /* 64px */
+    --text-hero:    3.25rem; /* 52px */
+    --section-y:    6.5rem;  /* 104px */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --text-display: 4.5rem;  /* 72px */
+  }
+}
+
+[data-theme="dark"] {
+  --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md:  0 1px 2px rgba(0, 0, 0, 0.25), 0 6px 18px rgba(0, 0, 0, 0.28);
+  --shadow-lg:  0 2px 4px rgba(0, 0, 0, 0.28), 0 14px 36px rgba(0, 0, 0, 0.4);
+  --shadow-xl:  0 8px 20px rgba(0, 0, 0, 0.35), 0 28px 64px rgba(0, 0, 0, 0.5);
+  --shadow-glow-gold: 0 0 0 1px rgba(234, 177, 78, 0.3), 0 8px 32px rgba(234, 177, 78, 0.12);
+  --gradient-hero: linear-gradient(160deg, #0F1724 0%, #1B3D6B 50%, #1E3A4A 100%);
+  --gradient-warm: linear-gradient(135deg, #1B222B 0%, #3B3222 100%);
+  --gradient-on-image: linear-gradient(to top, rgba(15, 23, 36, 0.92) 0%, rgba(15, 23, 36, 0.45) 45%, transparent 100%);
+}
+/* Heritage Trails PH — motion tokens
+   Quiet, unhurried. No bounces, no infinite loops.
+   GSAP consumers: map via website/src/lib/motion.ts */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --duration-instant: 80ms;
+  --duration-fast: 160ms;
+  --duration-base: 260ms;
+  --duration-slow: 420ms;
+  --duration-reveal: 700ms;
+  --duration-hero: 850ms;
+
+  /* Rise distances (px) — keep small for brand calm */
+  --rise-sm: 8px;
+  --rise-md: 16px;
+  --rise-lg: 28px;
+  --rise-hero: 32px;
+
+  --stagger-tight: 0.06s;
+  --stagger-base: 0.1s;
+  --stagger-loose: 0.14s;
+
+  --press-scale: 0.98;
+  --stamp-settle-scale: 1.08;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --duration-reveal: 0ms;
+    --duration-hero: 0ms;
+    --rise-sm: 0px;
+    --rise-md: 0px;
+    --rise-lg: 0px;
+    --rise-hero: 0px;
+  }
+}
+/* Heritage Trails PH — semantic category tones
+   Use these in product code instead of raw terracotta/sea hex. */
+:root {
+  --tone-history-bg: var(--ph-indigo-050);
+  --tone-history-fg: var(--ph-indigo-700);
+  --tone-history-solid: var(--ph-indigo-700);
+
+  --tone-unesco-bg: var(--ph-sun-100);
+  --tone-unesco-fg: var(--ph-sun-600);
+  --tone-unesco-solid: var(--ph-sun-500);
+
+  --tone-culture-bg: var(--ph-terracotta-100);
+  --tone-culture-fg: var(--ph-terracotta-700);
+  --tone-culture-solid: var(--ph-terracotta-600);
+
+  --tone-nature-bg: var(--ph-sea-100);
+  --tone-nature-fg: var(--ph-sea-700);
+  --tone-nature-solid: var(--ph-sea-600);
+
+  --tone-success-bg: var(--ph-success-100);
+  --tone-success-fg: var(--ph-success-600);
+  --tone-warning-bg: var(--ph-warning-100);
+  --tone-warning-fg: var(--ph-warning-600);
+  --tone-danger-bg: var(--ph-danger-100);
+  --tone-danger-fg: var(--ph-danger-600);
+}
+
+[data-theme="dark"],
+.dark {
+  --tone-history-bg: var(--ph-indigo-050);
+  --tone-history-fg: var(--ph-indigo-700);
+  --tone-history-solid: #3c6ba3;
+
+  --tone-unesco-bg: var(--ph-sun-100);
+  --tone-unesco-fg: var(--ph-sun-600);
+  --tone-unesco-solid: var(--ph-sun-500);
+
+  --tone-culture-bg: var(--ph-terracotta-100);
+  --tone-culture-fg: var(--ph-terracotta-700);
+  --tone-culture-solid: var(--ph-terracotta-600);
+
+  --tone-nature-bg: var(--ph-sea-100);
+  --tone-nature-fg: var(--ph-sea-700);
+  --tone-nature-solid: var(--ph-sea-600);
+}
+/* Heritage Trails PH — dark theme.
+   Enable with <html data-theme="dark"> (or on any container).
+   Only tokens change; components restyle automatically.
+   Every pairing verified to WCAG 2.1 AA. */
+/* Enable with data-theme="dark" and/or .dark on <html> (shadcn bridge uses both). */
+[data-theme="dark"],
+.dark {
+  color-scheme: dark;
+
+  /* ---- Base ramp overrides ---- */
+  /* sand → deep warm slate surfaces */
+  --ph-sand-0:   #131A24;
+  --ph-sand-50:  #1B222B;
+  --ph-sand-100: #232B36;
+  --ph-sand-200: #2E3844;
+  --ph-sand-300: #3E4A5B;
+  /* ink → light warm text */
+  --ph-ink-300:  #867F72;  /* faint — ≥3:1 UI text on cards */
+  --ph-ink-500:  #9E988C;  /* muted — AA on cards */
+  --ph-ink-700:  #C9C5BC;  /* body */
+  --ph-ink-900:  #EDEAE3;  /* strong */
+  /* indigo → azure tints; 700 lightens to a sky blue for text/icon accents */
+  --ph-indigo-050: #1E3151;
+  --ph-indigo-100: #26405F;
+  --ph-indigo-200: #33506F;
+  --ph-indigo-700: #8FB4DE;
+  /* tinted -100 pastels → deep tints */
+  --ph-sun-100:        #3B3222;
+  --ph-terracotta-100: #3C2E27;
+  --ph-sea-100:        #26332F;
+  --ph-success-100:    #24342B;
+  --ph-warning-100:    #3A3122;
+  --ph-danger-100:     #3A2A28;
+  /* lighten deep accent text tones for contrast on dark surfaces & tints */
+  --ph-sun-600:        #EBB65A;
+  --ph-terracotta-700: #E0A184;
+  --ph-terracotta-600: #D9967A;
+  --ph-terracotta-500: #C98F6F;
+  --ph-sea-700:        #93BAB1;
+  --ph-sea-600:        #7FAFA5;
+  --ph-success-600:    #7CC29B;
+  --ph-warning-600:    #DCA95E;
+  --ph-danger-600:     #E09085;
+
+  /* ---- Semantic aliases ---- */
+  --surface-page:    #131A24;
+  --surface-raised:  #1D2632;
+  --surface-sunken:  #10151C;
+  --surface-card:    #1D2632;
+  --surface-inverse: #2A3340;
+  --surface-frost:   rgba(19, 26, 36, 0.88);
+
+  --text-heading:  #EDEAE3;
+  --text-body:     #C9C5BC;
+  --text-muted:    #9E988C;
+  --text-faint:    #867F72;
+  --text-inverse:  #F5F3EE;
+  --text-link:     #8FB4DE;
+  --text-on-accent: #FFFFFF;
+  --text-on-gold:   #2C2620;   /* gold surface stays bright — keep dark ink */
+
+  --accent-primary:       #3C6BA3;
+  --accent-primary-hover: #4A7BB5;
+  --accent-primary-press: #33587A;
+
+  --border-subtle:  #262E39;
+  --border-default: #313C4A;
+  --border-strong:  #435061;
+  --border-focus:   #7FA3C4;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.25), 0 6px 18px rgba(0, 0, 0, 0.28);
+  --shadow-raised: 0 2px 4px rgba(0, 0, 0, 0.28), 0 14px 36px rgba(0, 0, 0, 0.4);
+  --shadow-overlay: 0 8px 20px rgba(0, 0, 0, 0.35), 0 28px 64px rgba(0, 0, 0, 0.5);
+}
+

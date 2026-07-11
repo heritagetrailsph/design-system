@@ -193,8 +193,8 @@ export function SystemPage() {
             Philippines UNESCO Trails
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Living documentation for tokens, product patterns, and voice. Single source of truth:
-            parent <code className="text-sm text-primary">tokens/</code> bridged into shadcn via{' '}
+            Living documentation for tokens, product patterns, and voice. Single source of truth:{' '}
+            <code className="text-sm text-primary">brand-tokens.css</code> mapped into shadcn via{' '}
             <code className="text-sm text-primary">brand-bridge.css</code>.
           </p>
         </div>

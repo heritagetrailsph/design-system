@@ -1,14 +1,7 @@
-/* Philippines UNESCO Trails — shared brand tokens → shadcn/Tailwind bridge.
-   Source of truth: ../../tokens/*.css (parent design system).
-   Do not redefine --ph-* hex here; only map semantics. */
+/* Philippines UNESCO Trails — brand tokens mapped to shadcn/Tailwind.
+   The vendored token bundle keeps production builds self-contained. */
 
-@import "../../../tokens/colors.css";
-@import "../../../tokens/typography.css";
-@import "../../../tokens/spacing.css";
-@import "../../../tokens/web.css";
-@import "../../../tokens/motion.css";
-@import "../../../tokens/tones.css";
-@import "../../../tokens/dark.css";
+@import "./brand-tokens.css";
 
 /* Sync dark: both .dark (shadcn/Tailwind) and data-theme (design system) */
 .dark {
