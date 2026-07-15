@@ -8,10 +8,20 @@ import { trails } from '@/data/trails'
 import { useGsapHeroReveal } from '@/hooks/use-gsap-reveal'
 import { cn } from '@/lib/utils'
 
+type HeroProps = {
+  title?: string
+  description?: string
+  featuredTrailId?: string
+}
+
 /** Marketing-scale hero composition for design-system stress testing. */
-export function Hero() {
+export function Hero({
+  title = 'A quiet morning in the old town',
+  description = 'Sample marketing copy for layout QA. Tests type scale, CTAs, and trail card bezel.',
+  featuredTrailId = 'intramuros',
+}: HeroProps) {
   const ref = useGsapHeroReveal<HTMLElement>()
-  const featured = trails[0]
+  const featured = trails.find((trail) => trail.id === featuredTrailId) ?? trails[0]
 
   return (
     <section ref={ref} className="relative overflow-hidden">
@@ -41,14 +51,14 @@ export function Hero() {
             data-reveal
             className="font-display max-w-[14ch] text-[2.4rem] leading-[1.08] tracking-tight text-[var(--text-heading)] sm:text-5xl lg:text-[3.35rem]"
           >
-            A quiet morning in the old town
+            {title}
           </h1>
 
           <p
             data-reveal
             className="max-w-[36ch] text-lg leading-relaxed text-muted-foreground md:text-xl"
           >
-            Sample marketing copy for layout QA. Tests type scale, CTAs, and trail card bezel.
+            {description}
           </p>
 
           <div data-reveal className="flex flex-wrap items-center gap-3 pt-1">

@@ -15,6 +15,16 @@ type FontStudy = {
   className: string
   banner: string
   description: string
+  heroTitle: string
+  heroDescription: string
+  heroTrailId: string
+}
+
+const calleCrisologoHero = {
+  heroTitle: 'Calle Crisologo by lamplight',
+  heroDescription:
+    'Cobblestones, capiz windows, and lamplight shape one of the Philippines\' most recognizable heritage streets.',
+  heroTrailId: 'vigan',
 }
 
 export const fontStudies: Record<FontStudyId, FontStudy> = {
@@ -24,6 +34,9 @@ export const fontStudies: Record<FontStudyId, FontStudy> = {
     className: '',
     banner: 'Marketing page layout used only to stress-test design components in context.',
     description: 'Quoly for brand headline moments. Poppins for modern, legible UI.',
+    heroTitle: 'A quiet morning in the old town',
+    heroDescription: 'Sample marketing copy for layout QA. Tests type scale, CTAs, and trail card bezel.',
+    heroTrailId: 'intramuros',
   },
   barabara: {
     id: 'barabara',
@@ -31,6 +44,7 @@ export const fontStudies: Record<FontStudyId, FontStudy> = {
     className: 'font-study-barabara',
     banner: 'Barabara title study.',
     description: 'Barabara for title moments in this study. Poppins remains the legible UI face.',
+    ...calleCrisologoHero,
   },
   'plus-jakarta-sans': {
     id: 'plus-jakarta-sans',
@@ -39,6 +53,7 @@ export const fontStudies: Record<FontStudyId, FontStudy> = {
     banner: 'Plus Jakarta Sans title study.',
     description:
       'Plus Jakarta Sans for title moments in this study. Poppins remains the legible UI face.',
+    ...calleCrisologoHero,
   },
   'hanken-grotesk': {
     id: 'hanken-grotesk',
@@ -47,6 +62,7 @@ export const fontStudies: Record<FontStudyId, FontStudy> = {
     banner: 'Hanken Grotesk title study.',
     description:
       'Hanken Grotesk brings Filipino-designed clarity to titles while Poppins remains the UI face.',
+    ...calleCrisologoHero,
   },
   'bricolage-grotesque': {
     id: 'bricolage-grotesque',
@@ -55,6 +71,7 @@ export const fontStudies: Record<FontStudyId, FontStudy> = {
     banner: 'Bricolage Grotesque title study.',
     description:
       'Bricolage Grotesque adds expressive cultural character while Poppins keeps the UI grounded.',
+    ...calleCrisologoHero,
   },
   sora: {
     id: 'sora',
@@ -62,6 +79,7 @@ export const fontStudies: Record<FontStudyId, FontStudy> = {
     className: 'font-study-sora',
     banner: 'Sora title study.',
     description: 'Sora keeps title shapes open and crisp while Poppins remains the familiar UI face.',
+    ...calleCrisologoHero,
   },
 }
 

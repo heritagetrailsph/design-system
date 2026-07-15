@@ -30,7 +30,11 @@ export function HomePage({ titleStudy = 'quoly' }: HomePageProps) {
       <div className="grain-overlay" aria-hidden />
       <SiteHeader banner={<MockBanner label={study.banner} />} />
       <main id="main">
-        <Hero />
+        <Hero
+          title={study.heroTitle}
+          description={study.heroDescription}
+          featuredTrailId={study.heroTrailId}
+        />
         <TrailsSection />
         <HowItWorks />
         <PassportSection />
