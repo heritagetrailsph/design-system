@@ -1,5 +1,6 @@
 export const fontStudyIds = [
   'quoly',
+  'calle-crisologo',
   'barabara',
   'plus-jakarta-sans',
   'hanken-grotesk',
@@ -37,6 +38,15 @@ export const fontStudies: Record<FontStudyId, FontStudy> = {
     heroTitle: 'A quiet morning in the old town',
     heroDescription: 'Sample marketing copy for layout QA. Tests type scale, CTAs, and trail card bezel.',
     heroTrailId: 'intramuros',
+  },
+  'calle-crisologo': {
+    id: 'calle-crisologo',
+    name: 'Calle Crisologo (Quoly)',
+    className: 'font-study-quoly',
+    banner: 'Calle Crisologo title study using Quoly.',
+    description:
+      'Quoly gives Calle Crisologo a distinct brand-led title treatment. Poppins remains the legible UI face.',
+    ...calleCrisologoHero,
   },
   barabara: {
     id: 'barabara',
