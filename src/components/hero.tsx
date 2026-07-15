@@ -31,7 +31,7 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="container-page relative grid min-h-[min(100dvh,52rem)] items-center gap-10 pb-16 pt-32 md:grid-cols-2 md:gap-14 md:pb-20 md:pt-36 lg:gap-20 lg:pb-24">
+      <div className="container-page relative grid min-h-[min(100dvh,52rem)] items-center gap-10 pb-16 pt-40 md:grid-cols-2 md:gap-14 md:pb-20 md:pt-36 lg:gap-20 lg:pb-24">
         <div className="flex flex-col items-start gap-5 md:gap-6">
           <p data-reveal className="text-sm font-medium text-primary">
             Page mock · Hero composition

@@ -25,7 +25,7 @@ export function MockBanner({
       )}
     >
       <div className="container-page flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-2.5 text-sm">
-        <p className="flex min-w-0 items-center gap-2">
+        <p className="flex w-full min-w-0 items-center gap-2 sm:w-auto sm:flex-1">
           <FlaskConical className="size-3.5 shrink-0 text-primary" aria-hidden />
           <span>
             <span className="font-semibold text-foreground">Mock surface.</span>{' '}

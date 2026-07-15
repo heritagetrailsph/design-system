@@ -7,30 +7,34 @@ import { PassportSection } from '@/components/passport-section'
 import { SystemSection } from '@/components/system-section'
 import { CtaSection } from '@/components/cta-section'
 import { SiteFooter } from '@/components/site-footer'
+import { fontStudies, type FontStudyId } from '@/data/font-studies'
+import { cn } from '@/lib/utils'
+
+type HomePageProps = {
+  titleStudy?: FontStudyId
+}
 
 /**
  * Page composition mock.
  * Exercises marketing-scale layout patterns against live tokens and components.
  * Not a product website.
  */
-export function HomePage() {
+export function HomePage({ titleStudy = 'quoly' }: HomePageProps) {
+  const study = fontStudies[titleStudy]
+
   return (
-    <div id="top" className="relative min-h-[100dvh]">
+    <div id="top" className={cn('relative min-h-[100dvh]', study.className)}>
       <a href="#main" className="skip-link">
         Skip to content
       </a>
       <div className="grain-overlay" aria-hidden />
-      <SiteHeader
-        banner={
-          <MockBanner label="Marketing page layout used only to stress-test design components in context." />
-        }
-      />
+      <SiteHeader banner={<MockBanner label={study.banner} />} />
       <main id="main">
         <Hero />
         <TrailsSection />
         <HowItWorks />
         <PassportSection />
-        <SystemSection />
+        <SystemSection displayFont={titleStudy} />
         <CtaSection />
       </main>
       <SiteFooter />

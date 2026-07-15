@@ -6,11 +6,17 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { EmptyState, MetaRow } from '@/components/patterns'
 import { paletteSwatches } from '@/data/trails'
+import { fontStudies, type FontStudyId } from '@/data/font-studies'
 import { useGsapReveal } from '@/hooks/use-gsap-reveal'
 
+type SystemSectionProps = {
+  displayFont?: FontStudyId
+}
+
 /** In-page teaser of foundations on the composition mock — links back to the lab home. */
-export function SystemSection() {
+export function SystemSection({ displayFont = 'quoly' }: SystemSectionProps) {
   const ref = useGsapReveal<HTMLElement>({ stagger: 0.1 })
+  const fontDetails = fontStudies[displayFont]
 
   return (
     <section
@@ -84,14 +90,12 @@ export function SystemSection() {
               <Card className="border-border shadow-card">
                 <CardHeader>
                   <CardTitle className="text-xl">Typography</CardTitle>
-                  <CardDescription>
-                    Quoly for brand headline moments. Poppins for modern, legible UI.
-                  </CardDescription>
+                  <CardDescription>{fontDetails.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-8">
                   <div>
                     <p className="mb-2 text-sm font-medium text-muted-foreground">
-                      Display · Quoly
+                      Display · {fontDetails.name}
                     </p>
                     <p className="font-display text-4xl leading-tight text-[var(--text-heading)] sm:text-5xl">
                       Calle Crisologo by lamplight

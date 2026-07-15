@@ -144,7 +144,7 @@ export function SystemPage() {
               Source of truth
             </Badge>
             <Separator orientation="vertical" className="hidden h-6 lg:block" />
-            <LabNav dense className="hidden lg:flex" />
+            <LabNav dense className="hidden xl:flex" />
           </div>
           <div className="flex items-center gap-1.5">
             <Button asChild variant="outline" size="sm" className="hidden rounded-full sm:inline-flex">
