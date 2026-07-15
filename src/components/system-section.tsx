@@ -98,7 +98,7 @@ export function SystemSection({ displayFont = 'quoly' }: SystemSectionProps) {
                       Display · {fontDetails.name}
                     </p>
                     <p className="font-display text-4xl leading-tight text-[var(--text-heading)] sm:text-5xl">
-                      Calle Crisologo by lamplight
+                      The Walled City of Intramuros
                     </p>
                   </div>
                   <Separator />

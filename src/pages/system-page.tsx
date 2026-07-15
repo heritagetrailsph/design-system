@@ -366,7 +366,7 @@ export function SystemPage() {
                   Display · Quoly — decorative, sparingly, headlines only
                 </p>
                 <p className="font-display text-4xl text-[var(--text-heading)]">
-                  Calle Crisologo by lamplight
+                  The Walled City of Intramuros
                 </p>
               </div>
               <Separator />
