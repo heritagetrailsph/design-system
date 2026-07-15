@@ -88,10 +88,10 @@ export const steps = [
 ]
 
 export const paletteSwatches = [
-  { name: 'Heritage Blue', token: '--ph-indigo-700', hex: '#22508C', role: 'Primary action' },
-  { name: 'Deep Indigo', token: '--ph-indigo-900', hex: '#13294A', role: 'Headings / inverse' },
-  { name: 'Sun Gold', token: '--ph-sun-500', hex: '#EAB14E', role: 'Achievement gold' },
-  { name: 'Terracotta', token: '--ph-terracotta-600', hex: '#A85E3E', role: 'Culture / emphasis' },
-  { name: 'Reef Teal', token: '--ph-sea-600', hex: '#3F7168', role: 'Nature / water' },
-  { name: 'Warm White', token: '--ph-sand-0', hex: '#FCFBF8', role: 'Page background' },
+  { name: 'Marine Blue', token: '--ph-indigo-700', hex: '#4E52A6', role: 'Primary action' },
+  { name: 'Deep Blue', token: '--ph-indigo-900', hex: '#3B2786', role: 'Headings / inverse' },
+  { name: 'Sun Gold', token: '--ph-sun-500', hex: '#F9ED32', role: 'UNESCO / achievement' },
+  { name: 'Gastronomy Red', token: '--ph-terracotta-600', hex: '#E60638', role: 'Culture / food' },
+  { name: 'Nature Green', token: '--ph-sea-500', hex: '#41B40B', role: 'Nature / conservation' },
+  { name: 'Near-black', token: '--ph-ink-900', hex: '#1A1A1A', role: 'Heading / body text' },
 ]

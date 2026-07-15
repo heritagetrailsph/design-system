@@ -62,7 +62,7 @@ export function PassportSection() {
               <div className="mb-7 flex items-center justify-between gap-3">
                 <div>
                   <p className="text-sm font-medium text-sun-600">Your stamps</p>
-                  <p className="font-display text-xl tracking-tight text-[var(--text-heading)]">
+                  <p className="text-xl font-semibold tracking-tight text-[var(--text-heading)]">
                     Ana&rsquo;s passport
                   </p>
                 </div>

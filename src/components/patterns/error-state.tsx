@@ -42,7 +42,7 @@ export function ErrorState({
         <AlertCircle className="size-6" strokeWidth={1.75} />
       </span>
       <div className="max-w-sm space-y-2">
-        <h3 className="font-display text-xl font-medium text-[var(--text-heading)]">{title}</h3>
+        <h3 className="text-xl font-medium text-[var(--text-heading)]">{title}</h3>
         <p className="text-sm leading-relaxed text-muted-foreground">{body}</p>
       </div>
       {onRetry ? (

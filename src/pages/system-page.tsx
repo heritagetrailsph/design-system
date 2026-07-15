@@ -74,7 +74,7 @@ function Recipe({
   return (
     <Card className="overflow-hidden border-border shadow-card">
       <CardHeader>
-        <CardTitle className="font-display text-xl">{name}</CardTitle>
+        <CardTitle className="text-xl">{name}</CardTitle>
         <CardDescription>{anatomy}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -137,7 +137,7 @@ export function SystemPage() {
         <div className="container-page flex h-14 items-center justify-between gap-4">
           <div className="flex min-w-0 items-center gap-3">
             <LogoMark size={28} className="hidden sm:block" />
-            <span className="truncate font-display text-lg text-[var(--text-heading)]">
+            <span className="truncate text-lg text-[var(--text-heading)]">
               Design system
             </span>
             <Badge variant="secondary" className="hidden sm:inline-flex">
@@ -192,8 +192,11 @@ export function SystemPage() {
             Design system lab · primary surface
           </p>
           <h1 className="font-display text-4xl tracking-tight text-[var(--text-heading)] sm:text-5xl">
-            Philippines UNESCO Trails
+            PH UNESCO Heritage and Nature Trails
           </h1>
+          <p className="mt-2 text-sm font-medium tracking-wide text-muted-foreground">
+            &ldquo;Treading Routes, Discovering Roots&rdquo;
+          </p>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
             Living documentation for tokens, components, product patterns, and voice. Page and app
             routes under this lab are composition mocks for testing these pieces in context — not a
@@ -218,18 +221,37 @@ export function SystemPage() {
         >
           <Card className="mb-8 border-border shadow-card">
             <CardHeader>
-              <CardTitle className="font-display text-xl">Logo — favicon-first mark</CardTitle>
+              <CardTitle className="text-xl">Logo — pin, path, and rising sun</CardTitle>
               <CardDescription>
-                The favicon is now the main brand icon across the browser tab, header, footer, and
-                system page. Keep the same asset everywhere so the product reads as one system,
-                not a set of separate logos. Component:{' '}
+                Real exports from <code className="text-primary">branding/logo/</code> (svg/rgb
+                preferred for web). The favicon is the icon-only mark, reused across the browser
+                tab, header, and footer so the product reads as one system. Component:{' '}
                 <code className="text-primary">components/brand/logo.tsx</code>
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-6">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {[
+                  { src: '/brand/horizontal-full-color.svg', label: 'Horizontal — default lockup' },
+                  { src: '/brand/vertical-full-color.svg', label: 'Vertical' },
+                  { src: '/brand/icon-full-color.svg', label: 'Icon only' },
+                  { src: '/brand/wordmark-full-color.svg', label: 'Wordmark only' },
+                ].map((lockup) => (
+                  <div
+                    key={lockup.src}
+                    className="flex flex-col gap-2 overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
+                  >
+                    <div className="flex h-24 items-center justify-center bg-white p-4">
+                      <img src={lockup.src} alt="" aria-hidden className="h-full w-full object-contain" />
+                    </div>
+                    <p className="px-3 pb-3 text-xs text-muted-foreground">{lockup.label}</p>
+                  </div>
+                ))}
+              </div>
+
               <div className="flex flex-wrap items-end gap-8 rounded-[var(--radius-lg)] border border-border bg-muted/30 p-6">
                 <div className="flex flex-col items-center gap-2">
-                  <LogoMark size={64} title="Philippines UNESCO Trails mark" />
+                  <LogoMark size={64} title="PH UNESCO Heritage and Nature Trails mark" />
                   <span className="text-xs text-muted-foreground">Mark 64</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
@@ -244,9 +266,66 @@ export function SystemPage() {
                   <Logo href="" markSize={40} />
                   <span className="text-xs text-muted-foreground">Full lockup</span>
                 </div>
-                <div className="flex flex-col items-center gap-2 rounded-xl bg-indigo-900 p-4">
-                  <LogoMark size={48} />
-                  <span className="text-xs text-sand-100/70">On inverse</span>
+                <div
+                  className="flex flex-col items-center gap-2 rounded-xl p-4"
+                  style={{ background: 'var(--gradient-brand-blue)' }}
+                >
+                  <img src="/brand/horizontal-white.svg" alt="" aria-hidden className="h-8" />
+                  <span className="text-xs text-white/80">White variant, on dark/color</span>
+                </div>
+              </div>
+
+              <div>
+                <p className="mb-2 text-sm font-medium text-muted-foreground">
+                  Logo gradient background cards — from the brand guidelines deck
+                </p>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  {[
+                    { name: 'Gold', gradient: 'var(--gradient-brand-gold)' },
+                    { name: 'Green', gradient: 'var(--gradient-brand-green)' },
+                    { name: 'Blue', gradient: 'var(--gradient-brand-blue)' },
+                    { name: 'Red', gradient: 'var(--gradient-brand-red)' },
+                  ].map((card) => (
+                    <div
+                      key={card.name}
+                      className="flex aspect-square flex-col items-center justify-center gap-2 rounded-2xl p-4"
+                      style={{ background: card.gradient }}
+                    >
+                      <img
+                        src="/brand/icon-full-color.svg"
+                        alt=""
+                        aria-hidden
+                        className="h-10 w-10 [filter:brightness(0)_invert(1)]"
+                      />
+                      <span className="text-xs font-medium text-white/90">{card.name}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Icon forced white via CSS filter for this preview — the current export set ships
+                  dedicated white variants for the horizontal/vertical/wordmark families, but not
+                  icon-only.
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <p className="mb-2 text-sm font-semibold text-sea-700">Do</p>
+                  <ul className="space-y-1.5 text-sm text-muted-foreground">
+                    <li>· Full-color logo on white or other high-contrast, low-noise backgrounds</li>
+                    <li>· All-white variant on color or dark/busy backgrounds</li>
+                    <li>· Poppins/Quoly for any accompanying wordmark text — never a system font</li>
+                    <li>· Scale the mark uniformly; keep pin, sun rays, and path proportions intact</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="mb-2 text-sm font-semibold text-[var(--tone-danger-fg)]">Don&rsquo;t</p>
+                  <ul className="space-y-1.5 text-sm text-muted-foreground">
+                    <li>· Full-color logo on a low-contrast or busy background (e.g. a photo)</li>
+                    <li>· Drop shadows, glows, outlines, or off-palette gradients on the logo</li>
+                    <li>· Distort, skew, or unevenly scale the mark or wordmark</li>
+                    <li>· Recolor the wordmark outside the brand palette</li>
+                  </ul>
                 </div>
               </div>
             </CardContent>
@@ -284,7 +363,7 @@ export function SystemPage() {
             <TabsContent value="type" className="space-y-6">
               <div>
                 <p className="mb-2 text-sm font-medium text-muted-foreground">
-                  Display · Spectral 500
+                  Display · Quoly — decorative, sparingly, headlines only
                 </p>
                 <p className="font-display text-4xl text-[var(--text-heading)]">
                   Calle Crisologo by lamplight
@@ -293,7 +372,7 @@ export function SystemPage() {
               <Separator />
               <div>
                 <p className="mb-2 text-sm font-medium text-muted-foreground">
-                  Body · Figtree / 1.6
+                  Body · Poppins / 1.6
                 </p>
                 <p className="max-w-prose text-base leading-relaxed">
                   The walls of Intramuros were raised in 1571 — and survived four centuries of
@@ -324,7 +403,7 @@ export function SystemPage() {
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
             <Card className="border-border shadow-card">
               <CardHeader>
-                <CardTitle className="font-display text-xl">Spacing</CardTitle>
+                <CardTitle className="text-xl">Spacing</CardTitle>
                 <CardDescription>Four-pixel base grid. Prefer named tokens over arbitrary gaps.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -338,7 +417,7 @@ export function SystemPage() {
             </Card>
             <Card className="border-border shadow-card">
               <CardHeader>
-                <CardTitle className="font-display text-xl">Radius</CardTitle>
+                <CardTitle className="text-xl">Radius</CardTitle>
                 <CardDescription>Small controls, medium cards, soft feature surfaces, and pills.</CardDescription>
               </CardHeader>
               <CardContent className="grid grid-cols-2 gap-3 text-center text-xs text-muted-foreground">
@@ -356,7 +435,7 @@ export function SystemPage() {
             </Card>
             <Card className="border-border shadow-card">
               <CardHeader>
-                <CardTitle className="font-display text-xl">Elevation</CardTitle>
+                <CardTitle className="text-xl">Elevation</CardTitle>
                 <CardDescription>Elevation communicates hierarchy, never decoration alone.</CardDescription>
               </CardHeader>
               <CardContent className="grid grid-cols-3 gap-3 text-center text-xs text-muted-foreground">
@@ -376,7 +455,7 @@ export function SystemPage() {
           <div className="grid gap-6 lg:grid-cols-2">
             <Card className="border-border shadow-card">
               <CardHeader>
-                <CardTitle className="font-display text-xl">Buttons</CardTitle>
+                <CardTitle className="text-xl">Buttons</CardTitle>
                 <CardDescription>One primary action per view. Labels stay short and never wrap.</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-wrap items-center gap-3">
@@ -392,7 +471,7 @@ export function SystemPage() {
             </Card>
             <Card className="border-border shadow-card">
               <CardHeader>
-                <CardTitle className="font-display text-xl">Form fields</CardTitle>
+                <CardTitle className="text-xl">Form fields</CardTitle>
                 <CardDescription>Labels remain visible. Errors sit below the field and are programmatically linked.</CardDescription>
               </CardHeader>
               <CardContent className="grid gap-4 sm:grid-cols-2">
@@ -422,7 +501,7 @@ export function SystemPage() {
               anatomy="PhotoBlock + Badge + PhotoCaption + MetaRow · variants: featured | row"
               doList={[
                 'Real photography or brand gradient fallback',
-                'Sentence-case trail names in Spectral',
+                'Sentence-case trail names in Quoly',
                 'Concrete meta: Built 1571 · 4.2 km · 12 stops',
               ]}
               dontList={[
@@ -541,7 +620,7 @@ export function SystemPage() {
           </div>
           <Card className="border-border shadow-card">
             <CardHeader>
-              <CardTitle className="font-display text-xl">State coverage</CardTitle>
+              <CardTitle className="text-xl">State coverage</CardTitle>
               <CardDescription>Every data-driven surface ships with the complete state cycle.</CardDescription>
             </CardHeader>
             <CardContent className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -563,7 +642,7 @@ export function SystemPage() {
           <div className="grid gap-6 lg:grid-cols-2">
             <Card className="border-border shadow-card">
               <CardHeader>
-                <CardTitle className="font-display text-xl">Interaction requirements</CardTitle>
+                <CardTitle className="text-xl">Interaction requirements</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-sm text-muted-foreground">
                 {[
@@ -579,7 +658,7 @@ export function SystemPage() {
             </Card>
             <Card className="border-border shadow-card">
               <CardHeader>
-                <CardTitle className="font-display text-xl">Reference widths</CardTitle>
+                <CardTitle className="text-xl">Reference widths</CardTitle>
                 <CardDescription>Validate content, navigation, imagery, and tap targets at every width.</CardDescription>
               </CardHeader>
               <CardContent className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -670,7 +749,7 @@ export function SystemPage() {
             ].map((item) => (
               <Card key={item.t} className="border-border shadow-card">
                 <CardHeader className="pb-2">
-                  <CardTitle className="font-display text-lg">{item.t}</CardTitle>
+                  <CardTitle className="text-lg">{item.t}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm leading-relaxed text-muted-foreground">{item.b}</p>
@@ -696,7 +775,7 @@ export function SystemPage() {
             ].map(([title, body]) => (
               <Card key={title} className="border-border shadow-card">
                 <CardHeader>
-                  <CardTitle className="font-display text-lg">{title}</CardTitle>
+                  <CardTitle className="text-lg">{title}</CardTitle>
                 </CardHeader>
                 <CardContent><p className="text-sm leading-relaxed text-muted-foreground">{body}</p></CardContent>
               </Card>

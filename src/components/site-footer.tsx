@@ -10,7 +10,7 @@ export function SiteFooter() {
           <div className="max-w-sm space-y-4">
             <Logo href="/" markSize={40} tagline="Design system lab" />
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Living design system for Philippines UNESCO Trails. Page and app
+              Living design system for PH UNESCO Heritage and Nature Trails. Page and app
               surfaces here are mocks for testing tokens, patterns, and voice —
               not a production product site.
             </p>

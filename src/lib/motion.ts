@@ -1,5 +1,5 @@
 /**
- * Philippines UNESCO Trails — motion presets.
+ * PH UNESCO Heritage and Nature Trails — motion presets.
  * Reads CSS custom properties from tokens/motion.css when available;
  * falls back to brand defaults (quiet, unhurried).
  */

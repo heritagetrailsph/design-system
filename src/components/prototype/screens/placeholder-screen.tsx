@@ -28,7 +28,7 @@ export function PlaceholderScreen({ tab, onAction }: PlaceholderScreenProps) {
           A
         </span>
         <div>
-          <h1 className="font-display text-xl text-[var(--text-heading)]">Ana Reyes</h1>
+          <h1 className="text-xl text-[var(--text-heading)]">Ana Reyes</h1>
           <p className="text-sm text-muted-foreground">Manila · Heritage walker</p>
         </div>
       </header>

@@ -78,7 +78,7 @@ export function EmptyState({
         <Icon className="size-6" strokeWidth={1.75} />
       </span>
       <div className="max-w-sm space-y-2">
-        <h3 className="font-display text-xl font-medium text-[var(--text-heading)]">
+        <h3 className="text-xl font-medium text-[var(--text-heading)]">
           {resolvedTitle}
         </h3>
         <p className="text-sm leading-relaxed text-muted-foreground">{resolvedBody}</p>

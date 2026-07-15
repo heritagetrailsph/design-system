@@ -57,7 +57,7 @@ export function HowItWorks() {
                   <Icon className="size-5" strokeWidth={1.5} />
                 </span>
                 <div className="space-y-2.5">
-                  <h3 className="font-display text-xl font-medium tracking-tight text-[var(--text-heading)] md:text-[1.35rem]">
+                  <h3 className="text-xl font-medium tracking-tight text-[var(--text-heading)] md:text-[1.35rem]">
                     {step.title}
                   </h3>
                   <p className="max-w-[32ch] text-sm leading-relaxed text-muted-foreground md:text-[0.9375rem]">

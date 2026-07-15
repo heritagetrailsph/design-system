@@ -49,7 +49,7 @@ export function PrototypePage() {
         <div className="container-page flex h-14 items-center justify-between gap-4">
           <div className="flex min-w-0 items-center gap-3">
             <LogoMark size={28} className="hidden sm:block" />
-            <span className="truncate font-display text-lg text-[var(--text-heading)]">
+            <span className="truncate text-lg text-[var(--text-heading)]">
               App mock
             </span>
             <Badge variant="secondary" className="hidden shrink-0 sm:inline-flex">
@@ -105,7 +105,7 @@ export function PrototypePage() {
                     <div className="mb-2 flex size-9 items-center justify-center rounded-xl bg-secondary text-primary">
                       <f.icon className="size-4" strokeWidth={1.75} />
                     </div>
-                    <CardTitle className="font-display text-lg">{f.title}</CardTitle>
+                    <CardTitle className="text-lg">{f.title}</CardTitle>
                     <CardDescription className="leading-relaxed">{f.body}</CardDescription>
                   </CardHeader>
                 </Card>

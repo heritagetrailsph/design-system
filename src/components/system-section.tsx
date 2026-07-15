@@ -52,7 +52,7 @@ export function SystemSection() {
             <TabsContent value="color" className="outline-none">
               <Card className="border-border shadow-card">
                 <CardHeader>
-                  <CardTitle className="font-display text-xl">Palette preview</CardTitle>
+                  <CardTitle className="text-xl">Palette preview</CardTitle>
                   <CardDescription>
                     From brand-tokens.css. Never redefine hex in components.
                   </CardDescription>
@@ -83,15 +83,15 @@ export function SystemSection() {
             <TabsContent value="type" className="outline-none">
               <Card className="border-border shadow-card">
                 <CardHeader>
-                  <CardTitle className="font-display text-xl">Typography</CardTitle>
+                  <CardTitle className="text-xl">Typography</CardTitle>
                   <CardDescription>
-                    Spectral for heritage presence. Figtree for modern, legible UI.
+                    Quoly for brand headline moments. Poppins for modern, legible UI.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-8">
                   <div>
                     <p className="mb-2 text-sm font-medium text-muted-foreground">
-                      Display · Spectral 500
+                      Display · Quoly
                     </p>
                     <p className="font-display text-4xl leading-tight text-[var(--text-heading)] sm:text-5xl">
                       Calle Crisologo by lamplight

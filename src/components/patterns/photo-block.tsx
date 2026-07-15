@@ -93,7 +93,7 @@ export function PhotoCaption({ region, title, meta, className }: PhotoCaptionPro
       {region ? (
         <p className="mb-1.5 text-sm font-medium text-[var(--text-on-image)]/85">{region}</p>
       ) : null}
-      <h3 className="font-display text-2xl font-medium leading-tight text-[var(--text-on-image)] sm:text-[1.75rem]">
+      <h3 className="text-2xl font-medium leading-tight text-[var(--text-on-image)] sm:text-[1.75rem]">
         {title}
       </h3>
       {meta ? <div className="mt-1.5">{meta}</div> : null}

@@ -43,7 +43,7 @@ export function PassportScreen({ earnedTrailIds, celebrateId }: PassportScreenPr
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-sun-500">
           Heritage passport
         </p>
-        <h1 className="mt-1.5 font-display text-2xl text-[var(--text-inverse)]">
+        <h1 className="mt-1.5 text-2xl text-[var(--text-inverse)]">
           Ana&apos;s journey
         </h1>
         <div className="mt-4 flex items-center gap-3">

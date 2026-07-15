@@ -8,7 +8,7 @@ type LogoMarkProps = {
 }
 
 /**
- * Philippines UNESCO Trails mark
+ * PH UNESCO Heritage and Nature Trails mark
  *
  * Source of truth: the favicon asset. Reuse the same icon everywhere so the
  * browser tab, header, footer, and system page all stay visually aligned.
@@ -56,8 +56,8 @@ export function Logo({
       <LogoMark size={markSize} />
       {wordmark ? (
         <span className="flex min-w-0 flex-col leading-none">
-          <span className="font-display text-[0.98rem] font-medium tracking-[0.01em] text-[var(--text-heading)] transition-colors group-hover:text-primary sm:text-[1.05rem]">
-            Philippines UNESCO Trails
+          <span className="truncate text-[0.98rem] font-medium tracking-[0.01em] text-[var(--text-heading)] transition-colors group-hover:text-primary sm:text-[1.05rem]">
+            PH UNESCO Heritage and Nature Trails
           </span>
           <span className="mt-0.5 text-[0.57rem] font-medium tracking-[0.11em] text-muted-foreground">
             {tagline}
@@ -76,7 +76,7 @@ export function Logo({
           'focus-visible:rounded-xl focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
           className
         )}
-        aria-label="Philippines UNESCO Trails design system"
+        aria-label="PH UNESCO Heritage and Nature Trails design system"
       >
         {content}
       </a>
@@ -86,7 +86,7 @@ export function Logo({
   return (
     <span
       className={cn('inline-flex items-center gap-2.5', className)}
-      aria-label="Philippines UNESCO Trails design system"
+      aria-label="PH UNESCO Heritage and Nature Trails design system"
     >
       {content}
     </span>
@@ -98,11 +98,11 @@ export function LogoWordmark({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        'font-display text-lg font-medium tracking-[0.01em] text-[var(--text-heading)]',
+        'text-lg font-medium tracking-[0.01em] text-[var(--text-heading)]',
         className
       )}
     >
-      Philippines UNESCO Trails
+      PH UNESCO Heritage and Nature Trails
     </span>
   )
 }

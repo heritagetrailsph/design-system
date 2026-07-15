@@ -126,7 +126,7 @@ export function TrailCardRow({ trail, className, onClick, ...rest }: TrailCardRo
               {trail.badge}
             </Badge>
           </div>
-          <h3 className="font-display text-lg font-medium leading-snug text-[var(--text-heading)]">
+          <h3 className="text-lg font-medium leading-snug text-[var(--text-heading)]">
             {trail.name}
           </h3>
           <MetaRowFromString meta={trail.meta} className="text-xs sm:text-sm" />

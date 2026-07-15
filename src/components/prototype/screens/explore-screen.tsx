@@ -72,7 +72,7 @@ export function ExploreScreen({ onOpenTrail }: ExploreScreenProps) {
       <header className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-xs font-medium text-muted-foreground">Mabuhay, Ana</p>
-          <h1 className="font-display text-[1.65rem] leading-tight text-[var(--text-heading)]">
+          <h1 className="text-[1.65rem] leading-tight text-[var(--text-heading)]">
             Trails near you
           </h1>
         </div>
@@ -171,7 +171,7 @@ export function ExploreScreen({ onOpenTrail }: ExploreScreenProps) {
 
           {rest.length > 0 ? (
             <section className="space-y-3">
-              <h2 className="font-display text-lg text-[var(--text-heading)]">
+              <h2 className="text-lg text-[var(--text-heading)]">
                 More to explore
               </h2>
               <div className="flex flex-col gap-3">
