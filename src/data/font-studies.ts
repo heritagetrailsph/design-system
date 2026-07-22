@@ -5,6 +5,7 @@ export const fontStudyIds = [
   'hanken-grotesk',
   'bricolage-grotesque',
   'sora',
+  'figtree',
 ] as const
 
 export type FontStudyId = (typeof fontStudyIds)[number]
@@ -76,6 +77,15 @@ export const fontStudies: Record<FontStudyId, FontStudy> = {
     className: 'font-study-sora',
     banner: 'Sora title study.',
     description: 'Sora keeps title shapes open and crisp while Poppins remains the familiar UI face.',
+    ...intramurosHero,
+  },
+  figtree: {
+    id: 'figtree',
+    name: 'Figtree',
+    className: 'font-study-figtree',
+    banner: 'Figtree title study.',
+    description:
+      'Figtree brings friendly, modern geometric clarity to titles while Poppins remains the UI face.',
     ...intramurosHero,
   },
 }

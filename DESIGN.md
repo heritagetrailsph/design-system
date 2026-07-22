@@ -144,6 +144,34 @@ before wiring into `apps/web` / `apps/cms` font loading (Next.js `next/font/loca
 `next/font/google` for Poppins) or the Flutter `pubspec.yaml` font block — neither app currently
 declares either family, so this is greenfield integration work, not a rename.
 
+Quoly is self-hosted in this repo (`website/public/fonts/quoly/Quoly.woff2`, `@font-face` in
+`website/src/index.css`) and wired as `--font-display`, restricted by convention to real
+headline moments — component/heading defaults resolve `var(--font-display)` which chains to
+Poppins as fallback. Poppins ships via `@fontsource/poppins` (400/500/600/700).
+
+### Font study lab (exploratory, not adopted brand)
+
+`website` includes a title-face comparison lab for evaluating Quoly alternatives before
+committing further UI to it — this is a design exploration tool, not a brand decision. Visit
+`/mock` (or the design system's "Font studies" nav dropdown) and switch between:
+
+| Study | Font | Source | Treatment |
+|---|---|---|---|
+| Quoly | `Quoly` | self-hosted, `branding/fonts/quoly-font.zip` | current brand default; regular weight, tight leading |
+| Barabara | `Barabara` | self-hosted (`Barabara-Regular.ttf`) — public Philippine tourism display face by Michelle Co/BBDO Guerrero | uppercase, tight tracking |
+| Plus Jakarta Sans | `Plus Jakarta Sans Variable` | `@fontsource-variable/plus-jakarta-sans` | bold, tight tracking |
+| Hanken Grotesk | `Hanken Grotesk Variable` | `@fontsource-variable/hanken-grotesk` | bold, Filipino-designed |
+| Bricolage Grotesque | `Bricolage Grotesque Variable` | `@fontsource-variable/bricolage-grotesque` | condensed, expressive |
+| Sora | `Sora Variable` | `@fontsource-variable/sora` | bold, open/crisp |
+| Figtree | `Figtree Variable` | `@fontsource-variable/figtree` | bold, friendly geometric |
+
+Every study keeps Poppins as the body/UI face and only swaps `--font-display` (see
+`.font-study-*` utilities in `src/index.css`, driven by `src/data/font-studies.ts` and routed
+via `src/data/lab-routes.ts`). Quoly remains the only study treated as real brand typography per
+the brand guidelines deck — the rest exist to stress-test whether a more legible/available
+alternative should replace or supplement it; don't read any non-Quoly study as an approved
+brand typeface.
+
 ## Social media kit
 
 Pre-sized assets in `branding/social_media_kit/`:
@@ -164,3 +192,19 @@ hero screen ("Explore the Philippines", nav: Discover Trails / Eco-Products / Di
 `apps/web` and `apps/cms` are still on `PlaceholderPage` per `CLAUDE.md`. Don't treat the copy or
 layout in these mockups as finalized product content; treat only the logo placement and color
 usage they demonstrate as binding.
+
+## `website` app routing (design system lab)
+
+The `website` package is the design-system lab itself, not the product site — its routes:
+
+| Route | Content |
+|---|---|
+| `/` | `SystemPage` — the live design system doc (primary surface; `/system` redirects here) |
+| `/mock` | `HomePage` — marketing page-composition mock, stress-tests components in a real layout |
+| `/font-study/{id}` | Same `HomePage` mock with `--font-display` swapped per the font study lab above |
+| `/prototype` | `PrototypePage` — interactive mobile app-shell pattern mock |
+
+When merging this design system into another website/repo, port `src/styles/brand-tokens.css`
+(+ `brand-bridge.css`) and the font `@font-face`/`@fontsource` imports as the token layer; treat
+`/mock` and `/font-study/*` as scratch/QA routes to leave behind, not product pages to carry
+over.

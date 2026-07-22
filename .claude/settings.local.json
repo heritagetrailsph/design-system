@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /tmp/claude-1000/-home-user-Desktop-tmp-ph-h-website/198464bb-6c82-48d5-bb02-b6719294d9b4/scratchpad)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 *)",
+      "Bash(npm view *)",
+      "Bash(npm uninstall *)",
+      "Bash(npm install *)",
+      "Bash(fonttools ttLib.woff2 compress -o public/fonts/quoly/Quoly.woff2 branding/fonts/_extract/quoly/Quoly.otf)",
+      "Bash(fonttools varLib.instancer)"
+    ]
+  }
+}

@@ -9,6 +9,7 @@
 @import "@fontsource-variable/hanken-grotesk";
 @import "@fontsource-variable/bricolage-grotesque/standard.css";
 @import "@fontsource-variable/sora";
+@import "@fontsource-variable/figtree";
 
 /* Quoly — decorative display accent, self-hosted (branding/fonts/quoly-font.zip).
    Use sparingly for real headlines only, per DESIGN.md — never body copy. */
@@ -221,6 +222,17 @@
     font-weight: 650;
     letter-spacing: -0.035em;
     line-height: 1.06;
+  }
+
+  .font-study-figtree {
+    --font-display: "Figtree Variable", "Poppins", ui-sans-serif, sans-serif;
+  }
+
+  .font-study-figtree :is(h1, h2, h3, h4, [data-slot="card-title"]) {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
   }
 
   .text-balance {
